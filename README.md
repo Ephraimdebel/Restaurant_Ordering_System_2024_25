@@ -9,7 +9,4 @@
 | Ashenafi Godana | ```UGR/7906/14``` | 4       |
 | Ephraim Debel   | ```UGR/0640/15``` | 4       |
 | Jiru Gutema     | ```UGR/5902/15``` | 4       |
-# Title: Restaurant Ordering System
-
-## Group Members
 
