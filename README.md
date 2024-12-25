@@ -1,6 +1,6 @@
-# Restaurant Ordering System
+# Group Members
 
-## Group Members
+## Title : Restaurant Ordering System
 
 | Name            | ID.NO       | Section |
 | --------------- | ----------- | ------- |
