@@ -1,5 +1,4 @@
 nodemodules/
 .env
-*.js
 dist/
 coverage/
