@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!token) {
     alert("You are not authorized! Redirecting to login...");
-    window.location.href = "../../pages/login.html";
+    window.location.href = "/pages/login.html";
     return;
   }
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   contentDiv.textContent = `Welcome, ${payload.email}!`;
 
   // Validate token with the server (optional)
-  fetch("http://localhost:5500/validate-token", {
+  fetch("https://reqres.in/api/validate-user", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -49,6 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(() => {
       alert("Session expired. Please log in again.");
       sessionStorage.removeItem("authToken");
-      window.location.href = "../../pages/login.html";
+      window.location.href = "/pages/login.html";
     });
 });

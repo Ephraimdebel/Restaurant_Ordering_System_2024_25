@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("http://localhost:5500/login", {
+      const response = await postData("https://reqres.in/api/login", {
         email,
         password,
       });
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showMessage("Login successful!");
 
       // Optionally redirect to another page
-      window.location.href = "../../index.html";
+      window.location.href = "/index.html";
     } catch (error) {
       showMessage(error.message, true);
     }
