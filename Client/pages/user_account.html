@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/header.css" />
-
-    <title>Navbar</title>
+    <link rel="stylesheet" href="./../styles/user_account.css" />
+    <link rel="stylesheet" href="./../styles/header.css" />
   </head>
   <body>
     <header>
@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link" href="./index.html">Home</a>
+                <a class="nav-link link" href="./../index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link link" href="/about">Our Story</a>
@@ -80,13 +80,13 @@
               <li class="nav-item">
                 <a
                   class="nav-link link accountButton"
-                  href="./pages/user_account.html"
+                  href="./user_account.html"
                   >Account</a
                 >
               </li>
 
               <li class="nav-item">
-                <a class="nav-link contactButton" href="./pages/order_us.html"
+                <a class="nav-link contactButton" href="./order_us.html"
                   >Order Us</a
                 >
               </li>
@@ -95,7 +95,39 @@
         </div>
       </nav>
     </header>
-    <script src="dist/pages/header.js"></script>
+    <main>
+      <div class="container mt-5">
+        <div class="card profile-card">
+          <div
+            class="card-header text-center"
+            style="background-color: #4b727a; color: #ffd700"
+          >
+            <h3>User Profile</h3>
+          </div>
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-4 text-center">
+                <div id="profile-avatar"></div>
+              </div>
+              <div class="col-md-8">
+                <p id="profile-name"></p>
+                <p id="profile-email"></p>
+                <p id="profile-phone"></p>
+                <p id="profile-address"></p>
+                <button class="btn btn-primary" id="edit-profile-btn">
+                  Edit Profile
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <h5>Order History</h5>
+              <ul class="list-group" id="order-history"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../dist/pages/user_profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

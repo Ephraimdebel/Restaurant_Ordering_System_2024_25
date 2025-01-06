@@ -7,8 +7,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/header.css" />
-
+    <link rel="stylesheet" href="../styles/order_us.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
     <title>Navbar</title>
   </head>
   <body>
@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link" href="./index.html">Home</a>
+                <a class="nav-link link" href="./../index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link link" href="/about">Our Story</a>
@@ -80,13 +80,13 @@
               <li class="nav-item">
                 <a
                   class="nav-link link accountButton"
-                  href="./pages/user_account.html"
+                  href="./user_account.html"
                   >Account</a
                 >
               </li>
 
               <li class="nav-item">
-                <a class="nav-link contactButton" href="./pages/order_us.html"
+                <a class="nav-link contactButton" href="./order_us.html"
                   >Order Us</a
                 >
               </li>
@@ -95,7 +95,78 @@
         </div>
       </nav>
     </header>
-    <script src="dist/pages/header.js"></script>
+    <main>
+      <div class="order-container">
+        <h1 class="order-title">Place Your Order!</h1>
+        <p class="order-description">
+          Fill out the form below to order your favorite cake!
+        </p>
+        <form id="order-form">
+          <div class="form-group mb-3">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="form-group mb-3">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div class="form-group mb-3">
+            <input
+              type="text"
+              id="address"
+              name="address"
+              class="form-control"
+              placeholder="Your Address"
+              required
+            />
+          </div>
+          <div class="form-group mb-3">
+            <select id="cakeType" name="cakeType" class="form-select" required>
+              <option value="" disabled selected>Select Cake Type</option>
+              <option value="Chocolate Cake">Chocolate Cake</option>
+              <option value="Vanilla Cake">Vanilla Cake</option>
+              <option value="Red Velvet Cake">Red Velvet Cake</option>
+              <option value="Lemon Cake">Lemon Cake</option>
+              <option value="Carrot Cake">Carrot Cake</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <select id="cakeSize" name="cakeSize" class="form-select" required>
+              <option value="" disabled selected>Select Cake Size</option>
+              <option value="1 kilo">1 kilo</option>
+              <option value="2 kilos">2 kilos</option>
+              <option value="3 kilos">3 kilos</option>
+              <option value="4 kilos">4 kilos</option>
+              <option value="5 kilos">5 kilos</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <input
+              type="date"
+              id="orderDate"
+              name="orderDate"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="submit-button">Place Order</button>
+        </form>
+      </div>
+      <div id="message">message</div>
+    </main>
+    <script src="../dist/pages/order_us.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
