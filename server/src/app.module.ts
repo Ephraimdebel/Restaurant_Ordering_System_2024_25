@@ -2,11 +2,13 @@
 import { AuthModule } from './auth/auth.module';
 import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
+import { CategoriesModule } from './category/category.module';
 
 @Module({
   imports: [
     AuthModule,
-    UsersModule
+    UsersModule,
+    CategoriesModule
   ],
 })
 export class AppModule {}
