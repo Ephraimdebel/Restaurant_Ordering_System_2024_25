@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-  background: linear-gradient(to bottom, #ffe4e1, #fff);
+  background-color: white;
   font-family: "Arial", sans-serif;
   color: #333;
 }
@@ -9,22 +9,25 @@ header {
   margin-bottom: 30px;
 }
 
-header h1 {
+h1 {
   font-size: 2.5rem;
-  color: #d9534f;
+  color: #4b727a;
   font-weight: bold;
+  text-align: center;
 }
 
-header p {
+p {
   font-size: 1.2rem;
   color: #6c757d;
+  text-align: center;
 }
 
 /* Form Card */
 .card {
+  margin: auto;
   border: none;
   border-radius: 0;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
 .form-control {
@@ -34,29 +37,44 @@ header p {
 }
 
 .btn-primary {
-  background-color: #d9534f;
+  background-color: #4b727a;
   border: none;
   transition: background-color 0.3s ease-in-out;
   border-radius: 0;
 }
 
 .btn-primary:hover {
-  background-color: #c9302c;
+  background-color: #60919b;
 }
 
 .form-text {
   font-size: 0.9rem;
 }
 
-footer {
-  margin-top: 30px;
-  font-size: 0.9rem;
-  color: #666;
-}
+/* footer { */
+/* margin-top: 30px; */
+/* font-size: 0.9rem; */
+/* color: #666; */
+/* } */
 
 footer p {
-  margin: 0;
+  margin-top: 20px;
 }
 #message {
   text-align: center;
+}
+a {
+  color: #4b727a !important;
+  text-decoration: none !important;
+}
+.text-primary {
+  color: #4b727a !important;
+}
+.link {
+  text-decoration: none;
+  color: white !important;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
