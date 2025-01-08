@@ -1,4 +1,4 @@
-/* General Navbar styles */
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -34,6 +34,10 @@
   align-items: center;
 }
 
+.navbar:hover {
+  background-color: #3e5a60;
+}
+
 .link {
   text-decoration: none;
   color: white;
@@ -45,11 +49,12 @@
 
 .link:hover {
   color: #ffd700;
-  background-color: #4b727a;
 }
-.link:hover .menuButton {
-  /* display: block; */
-  background-color: #4b727a;
+
+.link:focus,
+.menuButton:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 4px;
 }
 
 .contactButton {
@@ -75,64 +80,6 @@
 }
 
 .menuButton {
-  background-color: #4b727a;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: bold;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.menuButton:hover {
-  color: #ffd700;
-  background-color: #4b727a;
-}
-
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #4b727a;
-  padding: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 999;
-}
-
-.menuItem:hover .dropdownMenu {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdownMenu li {
-  list-style: none;
-  padding: 10px 20px;
-}
-
-.dropdownMenu .link {
-  color: white;
-  font-size: 1rem;
-  font-family: "Poppins", sans-serif;
-  transition: color 0.3s ease;
-}
-
-.dropdownMenu .link:hover {
-  color: #ffd700;
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
-}
-
-/* Dropdown Menu Enhancements */
-
-.menuItem {
-  position: relative;
-}
-
-.menuButton {
   background: none;
   border: none;
   color: white;
@@ -151,7 +98,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #ffffff; /* Change background color to white */
+  background-color: #4b727a;
   padding: 10px 0;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
@@ -187,4 +134,173 @@
 
 .menuItem:hover .menuButton {
   color: transparent; /* Hide text when dropdown menu is active */
+}
+
+/* Fullscreen Image Container */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+.welcome-message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 80px;
+  background: rgba(255, 255, 255, 0); 
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+}
+.welcome-message h1{
+  font-size: 100px;
+}
+
+.welcome-message h2{
+  font-size: 60px;
+}
+.welcome-message h1,
+.welcome-message h2,
+.welcome-message h3 {
+  margin: 0;
+}
+
+.explore-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  background-color: #ffd700;
+  color: #4b727a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #4b727a;
+  color: #ffd700;
+}
+
+/* General footer styles */
+.footer {
+    background-color: #4b727a;
+    color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section styles */
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #FFD700;
+  text-transform: uppercase;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list-item {
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #f39c12;
+}
+
+/* Copyright section */
+.footer-copyright {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .welcome-message h1{
+    font-size: 48px;
+  }
+  .welcome-message h2{
+    font-size: 36px;
+  }
+  .welcome-message h3{
+    font-size: 24px;
+
+  }
+  footer{
+    padding: 20px 3px;
+  }
+  
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+  .welcome-message h1{
+    font-size: 48px;
+  }
+  .welcome-message h2{
+    font-size: 36px;
+  }
+  .welcome-message h3{
+    font-size: 24px;
+
+  }
+  .footer-heading {
+    font-size: 1rem;
+  }
+
+  .footer-list-item {
+    font-size: 0.9rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
 }

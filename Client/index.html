@@ -1,111 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles/header.css" />
-
-    <title>Home</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg" style="background-color: #4b727a">
-        <div class="container-fluid">
-          <a
-            class="navbar-brand"
-            href="#"
-            style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
-          >
-            G-5 Restaurant
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link link" href="./index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link" href="/about">Our Story</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link" href="/find-us">Find Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link" href="/reviews">Reviews</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle menuButton"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Menu
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  style="background-color: #4b727a"
-                  aria-labelledby="navbarDropdown"
-                >
-                  <li>
-                    <a class="dropdown-item link" href="/menu/cakes">Cakes</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item link" href="/menu/drinks">Drinks</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a
-                  id="logoutBtn"
-                  class="nav-link link logoutButton"
-                  href="./pages/login.html"
-                  >Logout</a
-                >
-              </li>
-
-              <li class="nav-item">
-                <a
-                  class="nav-link link accountButton"
-                  href="./pages/user_account.html"
-                  >Account</a
-                >
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link contactButton" href="./pages/order_us.html"
-                  >Order Us</a
-                >
-              </li>
-            </ul>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/header.css" />
+  <title>G-5 Restaurant - Home</title>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #4b727a">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #ffd700; font-family: Poppins; letter-spacing: 2px">G-5 Restaurant</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="/about">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="/find-us">Find Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="/reviews">Reviews</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle menuButton" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+              <ul class="dropdown-menu" style="background-color: #4b727a" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item link" href="/menu/cakes">Cakes</a></li>
+                <li><a class="dropdown-item link" href="/menu/drinks">Drinks</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a id="logoutBtn" class="nav-link link logoutButton" href="./pages/login.html">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link accountButton" href="./pages/user_account.html">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link contactButton" href="./pages/order_us.html">Order Us</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
-    <main>
-      <div id="message"></div>
-    </main>
-    <script src="./dist/pages/header.js"></script>
-    <!-- <script src="./dist/auth/token.js"></script> -->
-    <script src="./dist/pages/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Image Section with Welcome Message -->
+    <div class="image-container">
+      <img src="./Asset/LandingImg.jpeg" alt="Restaurant Landing" />
+      <div class="welcome-message">
+        <h1>Welcome to</h1>
+        <h2>Alpha</h2>
+        <h3>Patisserie & Bakery</h3>
+        <button id="exploreButton" class="explore-button">Explore Alpha</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-list">
+          <li><a href="/" class="footer-link">Home</a></li>
+          <li><a href="/aboutPage" class="footer-link">Our Story</a></li>
+          <li><a href="/menus" class="footer-link">Menus</a></li>
+          <li><a href="/orderUs" class="footer-link">Order Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-heading">Contact Us</h3>
+        <ul class="footer-list">
+          <li>Sanford: +251 941 000 022</li>
+          <li>Bole Atlas: +251 900 989 898</li>
+          <li>4Killo: +251 900 898 989</li>
+          <li>Email: lond2601@gmail.com</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-heading">Follow Us</h3>
+        <ul class="footer-list">
+          <li><a href="#" class="footer-link">Facebook</a></li>
+          <li><a href="#" class="footer-link">Twitter</a></li>
+          <li><a href="#" class="footer-link">Instagram</a></li>
+          <li><a href="#" class="footer-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      © 2023 Alphapatisserie Co. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./scripts/pages/header.ts"></script>
+</body>
 </html>

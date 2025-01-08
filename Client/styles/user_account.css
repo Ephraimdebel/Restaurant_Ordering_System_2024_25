@@ -29,6 +29,10 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+svg {
+  color: white;
+  background-color: aliceblue;
+}
 
 .editForm img {
   width: 50px;
