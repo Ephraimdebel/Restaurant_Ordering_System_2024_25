@@ -223,6 +223,7 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+    
     .social-media {
     padding-top: 40px;
 }
