@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  background-color: #4b727a;
   margin-bottom: 20px;
   text-align: center;
   font-size: 40px;
@@ -22,8 +22,8 @@
 .editForm {
   display: none;
   position: absolute;
-  scale: 1.2;
-  margin-top: 100px;
+
+  padding: 50px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -41,6 +41,27 @@
   color: white;
   cursor: pointer;
 }
+
+#closeForm {
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 90%;
+  width: 40px;
+  background-color: #4b727a;
+}
+#closeForm:hover {
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: red;
+}
+#edit-profile-btn {
+  background-color: #ffd700;
+  border: none;
+}
+#edit-profile-btn:hover {
+  transition: transform 0.2s, background-color 0.2s;
+  background-color: #ffd700;
+}
+
 @media (max-width: 768px) {
   .editForm {
     max-width: 96% !important;
