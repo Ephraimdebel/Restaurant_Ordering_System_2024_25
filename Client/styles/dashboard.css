@@ -7,7 +7,7 @@ body {
   .navbar {
     background-color: #2d676d;
     color: white;
-    padding: 1rem;
+    padding: 0 15rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@ body {
   }
   
   main {
-    padding: 2rem;
+    padding: 0 15rem;
   }
   
   form {
