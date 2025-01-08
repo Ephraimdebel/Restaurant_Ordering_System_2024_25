@@ -1,102 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../styles/dashboard.css">
-    <link rel="stylesheet" href="../styles/header.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../styles/dashboard.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: #4b727a">
-          <div class="container-fluid">
-            <a
-              class="navbar-brand"
-              href="#"
-              style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
-            >
-              G-5 Restaurant
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link link" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link" href="/about">Our Story</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link" href="/find-us">Find Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link" href="/reviews">Reviews</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle menuButton"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Menu
-                  </a>
-                  <ul
-                    class="dropdown-menu"
-                    style="background-color: #4b727a"
-                    aria-labelledby="navbarDropdown"
-                  >
-                    <li>
-                      <a class="dropdown-item link" href="/menu/cakes">Cakes</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item link" href="/menu/drinks">Drinks</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a
-                    id="logoutBtn"
-                    class="nav-link link logoutButton"
-                    href="./pages/login.html"
-                    >Logout</a
-                  >
-                </li>
-  
-                <li class="nav-item">
-                  <a
-                    class="nav-link link accountButton"
-                    href="./pages/user_account.html"
-                    >Account</a
-                  >
-                </li>
-  
-                <li class="nav-item">
-                  <a class="nav-link contactButton" href="./pages/order_us.html"
-                    >Order Us</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-    <script src="./../dist/pages/dashboard.js"></script>
-    <script src="./../dist/pages/script.js"></script>
+  <nav class="navbar">
+    <h1>G-5 Restaurant - Admin Dashboard</h1>
+    <div class="navbar-links">
+      <a href="#add-menu">Add Menu</a>
+      <a href="#view-orders">View Orders</a>
+      <a href="#add-admin">Add Admins</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Add Menu Section -->
+    <section id="add-menu">
+      <h2>Add Menu</h2>
+      <form id="menu-form">
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" required></textarea>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" required>
+        
+        <label for="category">Category:</label>
+        <input type="text" id="category" required>
+        
+        <button type="submit">Add Menu Item</button>
+      </form>
+    </section>
+
+    <!-- View Orders Section -->
+    <section id="view-orders">
+      <h2>View Orders</h2>
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Items</th>
+            <th>Total Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Orders will be dynamically loaded here -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Add Admin Section -->
+    <section id="add-admin">
+      <h2>Add Admins</h2>
+      <form id="admin-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        
+        <button type="submit">Add Admin</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>
