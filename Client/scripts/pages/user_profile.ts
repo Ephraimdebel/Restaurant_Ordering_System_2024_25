@@ -87,8 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .map((n) => n[0])
     .join("");
   avatarElement.alt = initials;
-  avatarElement.src = userProfile.avatar; // Set avatar image source
-
+  avatarElement.innerHTML = initials;
   // Add order history
   userProfile.orders.forEach((order) => {
     const listItem = document.createElement("li");
