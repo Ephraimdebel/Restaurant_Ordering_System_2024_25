@@ -9,24 +9,46 @@ body {
     background-color: #f8f8f8;
     color: #333;
 }
+.contactUs {
+    background-color: #4B727A; 
+    color: white; 
+    padding: 50px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-.contact-us-page {
+.contactUs h2 {
+    font-size: 2.5rem; 
+    margin-bottom: 10px;
+}
+
+.contactUs p {
+    font-size: 1.2rem;
+}
+.contactBackground{
+     background-color: #eaf1f1;
+}
+.contact-us-page  {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: 100px;
+    background-color: #eaf1f1;
+    height: 600px;
+
+
 }
 
 .contact-info {
-    width: 40%;
+    width: 45%;
     background-color: #eaf1f1;
     padding: 30px;
-    border-radius: 10px;
+   
 }
 
 .contact-info h2 {
-    font-size: 2rem;
-    color: #1a5637;
+    font-size: 1.9rem;
+    color: #4B727A;
 }
 
 .contact-info ul {
@@ -47,21 +69,26 @@ body {
 .contact-form {
     width: 55%;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .contact-form h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #1a5637;
+   
 }
 
 .contact-form p {
     font-size: 1.1rem;
     margin-bottom: 20px;
 }
-
+.email a {
+    color:#4B727A ;
+}
+.social-media{
+    padding: 20px 0px;
+  
+}
 .form-group {
     display: flex;
     gap: 20px;
@@ -82,9 +109,10 @@ textarea {
 }
 
 button {
-    background-color: #1a5637;
-    color: white;
+    background-color:#FFD700;
+    color: #4B727A;
     border: none;
+    margin-top: 20px;
     padding: 12px 25px;
     border-radius: 5px;
     font-size: 1rem;
@@ -92,7 +120,8 @@ button {
 }
 
 button:hover {
-    background-color: #134b29;
+    background-color:#4B727A;
+      color:#FFD700 ;
 }
 
 .social-media a {
@@ -105,14 +134,4 @@ button:hover {
     height: 30px;
 }
 
-@media (max-width: 768px) {
-    .contact-us-page {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .contact-info, .contact-form {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-}
