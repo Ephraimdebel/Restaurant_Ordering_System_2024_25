@@ -1,82 +1,75 @@
-// Interface for Menu Item
-interface MenuItem {
-    name: string;
-    category: string;
-    price: number;
-    image: string; // URL or Base64 string
-  }
-  
-  // Array to store menu items
-  const menuItems: MenuItem[] = [];
-  
-  // Function to handle image preview
-  const handleImagePreview = (event: Event) => {
-    const fileInput = event.target as HTMLInputElement;
-    const previewContainer = document.getElementById("image-preview") as HTMLElement;
-  
-    if (fileInput.files && fileInput.files[0]) {
-      const reader = new FileReader();
-  
-      reader.onload = (e) => {
-        previewContainer.innerHTML = `<img src="${e.target?.result}" alt="Image Preview">`;
-      };
-  
-      reader.readAsDataURL(fileInput.files[0]);
-    } else {
-      previewContainer.innerHTML = "";
-    }
-  };
-  
-  // Function to handle form submission
-  const handleFormSubmission = (event: Event) => {
-    event.preventDefault();
-  
-    // Get form values
-    const nameInput = document.getElementById("menu-name") as HTMLInputElement;
-    const categoryInput = document.getElementById("menu-category") as HTMLSelectElement;
-    const priceInput = document.getElementById("menu-price") as HTMLInputElement;
-    const imageInput = document.getElementById("menu-image") as HTMLInputElement;
-  
-    if (!imageInput.files || imageInput.files.length === 0) {
-      alert("Please upload an image!");
-      return;
-    }
-  
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const menuItem: MenuItem = {
-        name: nameInput.value,
-        category: categoryInput.value,
-        price: parseFloat(priceInput.value),
-        image: e.target?.result as string,
-      };
-  
-      // Add menu item to the list
-      menuItems.push(menuItem);
-  
-      // Log the menu item (replace with backend API call if needed)
-      console.log("New Menu Item Added:", menuItem);
-      console.log("All Menu Items:", menuItems);
-  
-      // Clear form fields and preview
-      nameInput.value = "";
-      categoryInput.value = "";
-      priceInput.value = "";
-      imageInput.value = "";
-      const previewContainer = document.getElementById("image-preview") as HTMLElement;
-      previewContainer.innerHTML = "";
-  
-      // Show success message
-      alert("Menu item added successfully!");
-    };
-  
-    reader.readAsDataURL(imageInput.files[0]);
-  };
-  
-  // Attach event listeners
-  const addMenuForm = document.getElementById("add-menu-form") as HTMLFormElement;
+// Function to handle form submission
+const handleFormSubmission = async (event: Event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  // Get form values
+  const nameInput = document.getElementById("menu-name") as HTMLInputElement;
+  const categoryInput = document.getElementById("menu-category") as HTMLSelectElement;
+  const priceInput = document.getElementById("menu-price") as HTMLInputElement;
   const imageInput = document.getElementById("menu-image") as HTMLInputElement;
+  const descriptionInput = document.getElementById("menu-description") as HTMLInputElement;
+
+  // Category mapping
+  const categoryMapping: { [key: string]: number } = {
+    "Cake": 1,
+    "Drinks": 2,
+    "Torta": 3,
+    "Other": 4,
+  };
+
+  const categoryName = categoryInput.value;
+  const categoryId = categoryMapping[categoryName] || 4; // Default to "Other" if the category is not recognized
+
+  // Ensure image is selected
+  if (!imageInput.files || imageInput.files.length === 0) {
+    alert("Please upload an image!");
+    return;
+  }
+
+  // Create a FormData object to send the data to the backend
+  const formData = new FormData();
   
-  addMenuForm.addEventListener("submit", handleFormSubmission);
-  imageInput.addEventListener("change", handleImagePreview);
-  
+  // Append form values to FormData
+  formData.append("name", nameInput.value);
+  formData.append("categoryId", categoryId.toString()); // Convert to string
+  formData.append("price", priceInput.value);
+  formData.append("description", descriptionInput.value);
+
+  // Append the image file
+  formData.append("image", imageInput.files[0]);
+
+  try {
+    // Send the data to the backend using fetch
+    const response = await fetch(" http://localhost:3333/menu/create", {
+      method: "POST",
+      body: formData, // The FormData object is sent as the body
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to add menu item");
+    }
+
+    // Parse response if needed
+    const result = await response.json();
+    console.log("Response from backend:", result);
+
+    // Success message
+    alert("Menu item added successfully!");
+
+    // Clear form fields and preview
+    nameInput.value = "";
+    categoryInput.value = "";
+    priceInput.value = "";
+    imageInput.value = "";
+    descriptionInput.value = "";
+    const previewContainer = document.getElementById("image-preview") as HTMLElement;
+    previewContainer.innerHTML = "";
+  } catch (error) {
+    console.error("Error during form submission:", error);
+    alert("There was an error adding the menu item.");
+  }
+};
+
+// Attach event listeners
+const submitButton = document.getElementById("submit-button") as HTMLButtonElement;
+submitButton.addEventListener("click", handleFormSubmission);

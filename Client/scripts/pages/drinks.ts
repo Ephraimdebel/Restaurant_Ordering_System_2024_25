@@ -1,4 +1,4 @@
-type FoodItem = {
+type DrinkItem = {
   id: number;
   name: string;
   price: number;
@@ -7,14 +7,18 @@ type FoodItem = {
   amount?: number; // Optional amount
 };
 
-const foodList: HTMLElement = document.getElementById("food-list")!;
-const cartItems: HTMLElement = document.getElementById("cart-items")!;
-const placeOrderButton: HTMLElement = document.getElementById("place-order")!;
-const cartLength: HTMLElement = document.getElementById("cart-length")!;
-const cartButton = document.getElementById("cart-button") as HTMLImageElement;
+const drinkList: HTMLElement = document.getElementById("drink-list")!;
+const drinkCartItems: HTMLElement = document.getElementById("cart-items")!;
+const drinkPlaceOrderButton: HTMLElement =
+  document.getElementById("place-order")!;
+const drinkCartLength: HTMLElement = document.getElementById("cart-length")!;
+const drinkCartButton = document.getElementById(
+  "cart-button"
+) as HTMLImageElement;
 
-let cart: FoodItem[] = [];
-const products: FoodItem[] = [
+let drinkCart: DrinkItem[] = [];
+
+const drinkProducts: DrinkItem[] = [
   {
     id: 1,
     name: "Chocolate Cake",
@@ -113,34 +117,37 @@ const products: FoodItem[] = [
   },
 ];
 
-// Display food items
-function displayFoodItems(): void {
-  foodList.innerHTML = "";
-  products.forEach((food) => {
+// Display drink items
+function displayDrinkItems(): void {
+  drinkList.innerHTML = "";
+  drinkProducts.forEach((drink) => {
     const item = document.createElement("div");
-    item.className = "food-item";
+    item.className = "drink-item";
     item.innerHTML = `
-      <img src="${food.image}" alt="${food.name}" />
-      <h3>${food.name}</h3>
-      <p>${food.desc}</p>
-      <p><strong>$${food.price.toFixed(2)}</strong></p>
-      <button class="add-to-cart" data-id="${food.id}">Add to Cart</button>
-    `;
-    foodList.appendChild(item);
+            <img src="${drink.image}" alt="${drink.name}" />
+            <h3>${drink.name}</h3>
+            <p>${drink.desc}</p>
+            <p><strong>$${drink.price.toFixed(2)}</strong></p>
+            <button class="add-to-cart" data-id="${
+              drink.id
+            }">Add to Cart</button>
+        `;
+    drinkList.appendChild(item);
   });
-
   // Attach event listeners for "Add to Cart" buttons
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   addToCartButtons.forEach((button) =>
     button.addEventListener("click", () => {
-      const foodId = parseInt((button as HTMLElement).getAttribute("data-id")!);
-      addToCart(foodId);
-      ShowMessage("Item added to cart!");
+      const drinkId = parseInt(
+        (button as HTMLElement).getAttribute("data-id")!
+      );
+      addDrinkToCart(drinkId);
+      showDrinkMessage("Item added to cart!");
     })
   );
 }
 
-function ShowMessage(message: string, p0: boolean): void {
+function showDrinkMessage(message: string): void {
   const messageDiv = document.getElementById("message")!;
   messageDiv.textContent = message;
   messageDiv.style.display = "block";
@@ -150,82 +157,82 @@ function ShowMessage(message: string, p0: boolean): void {
 }
 
 // Add to cart
-function addToCart(foodId: number): void {
-  const food = products.find((item) => item.id === foodId);
-  if (!food) return;
-  const existingItem = cart.find((item) => item.id === foodId);
+function addDrinkToCart(drinkId: number): void {
+  const drink = drinkProducts.find((item) => item.id === drinkId);
+  if (!drink) return;
+  const existingItem = drinkCart.find((item) => item.id === drinkId);
   if (existingItem) {
-    existingItem.amount += 1;
+    existingItem.amount = (existingItem.amount || 0) + 1;
   } else {
-    cart.push({ ...food, amount: 1 });
+    drinkCart.push({ ...drink, amount: 1 });
   }
 
-  updateCart();
-  saveCartToLocalStorage();
+  updateDrinkCart();
+  saveDrinkCartToLocalStorage();
 }
 
 // Delete from cart
-function deleteFromCart(foodId: number): void {
-  cart = cart.filter((item) => item.id !== foodId);
-  updateCart();
-  saveCartToLocalStorage();
+function deleteDrinkFromCart(drinkId: number): void {
+  drinkCart = drinkCart.filter((item) => item.id !== drinkId);
+  updateDrinkCart();
+  saveDrinkCartToLocalStorage();
 }
 
 // Update cart UI
-function updateCart(): void {
-  cartLength.textContent = cart.length.toString();
-  cartItems.innerHTML = "";
+function updateDrinkCart(): void {
+  drinkCartLength.textContent = drinkCart.length.toString();
+  drinkCartItems.innerHTML = "";
 
-  if (cart.length === 0) {
-    cartButton.src = "../assets/img/empty.svg";
+  if (drinkCart.length === 0) {
+    drinkCartButton.src = "../assets/img/empty.svg";
     return;
   }
 
-  cartButton.src = "../assets/img/cart.svg";
+  drinkCartButton.src = "../assets/img/cart.svg";
   let totalCost = 0;
 
-  const maxLength = Math.max(...cart.map((item) => item.name.length));
+  const maxLength = Math.max(...drinkCart.map((item) => item.name.length));
   const headerRow = document.createElement("li");
   headerRow.classList.add("cart-header");
   headerRow.innerHTML = `<span style="display: inline-block; font-weight:bold;width: ${maxLength}ch;">Item</span><span style="font-weight:bold;">Quantity</span><span style="font-weight:bold;">Price Each</span><span style="font-weight:bold;">Delete</span>`;
-  cartItems.appendChild(headerRow);
-  cart.forEach((item, index) => {
+  drinkCartItems.appendChild(headerRow);
+  drinkCart.forEach((item, index) => {
     const li = document.createElement("li");
     li.innerHTML = `<span style="display: inline-block; width: ${maxLength}ch;"> ${
       index + 1
     }.
-      ${item.name}</span>
-      <select class="item-amount" data-id="${item.id}">
-      
-        ${Array.from({ length: 10 }, (_, i) => i + 1)
-          .map(
-            (i) => `
-          <option value="${i}" ${
-              i === item.amount ? "selected" : ""
-            }>${i}</option>
-        `
-          )
-          .join("")}
-      </select>
-      <span>
-      = $${item.price.toFixed(2)} * ${item.amount.toFixed(0)}
-      </span>`;
+                ${item.name}</span>
+                <select class="item-amount" data-id="${item.id}">
+                
+                        ${Array.from({ length: 10 }, (_, i) => i + 1)
+                          .map(
+                            (i) => `
+                                <option value="${i}" ${
+                              i === item.amount ? "selected" : ""
+                            }>${i}</option>
+                        `
+                          )
+                          .join("")}
+                </select>
+                <span>
+                = $${item.price.toFixed(2)} * ${item.amount?.toFixed(0)}
+                </span>`;
     const headerRow = document.createElement("li");
 
-    totalCost += item.price * item.amount;
+    totalCost += item.price * (item.amount || 0);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Remove";
     deleteButton.classList.add("delete");
-    deleteButton.addEventListener("click", () => deleteFromCart(item.id));
+    deleteButton.addEventListener("click", () => deleteDrinkFromCart(item.id));
 
     li.appendChild(deleteButton);
-    cartItems.appendChild(li);
+    drinkCartItems.appendChild(li);
   });
 
   const totalCostElement = document.createElement("p");
   totalCostElement.textContent = `Total Cost: $${totalCost.toFixed(2)}`;
-  cartItems.appendChild(totalCostElement);
+  drinkCartItems.appendChild(totalCostElement);
 
   // Attach event listeners for amount dropdowns
   const amountDropdowns = document.querySelectorAll(".item-amount");
@@ -233,38 +240,39 @@ function updateCart(): void {
     const selectElement = dropdown as HTMLSelectElement;
 
     selectElement.addEventListener("change", (event) => {
-      const foodId = parseInt(selectElement.getAttribute("data-id")!);
+      const drinkId = parseInt(selectElement.getAttribute("data-id")!);
       const newAmount = parseInt(selectElement.value);
-      updateItemAmount(foodId, newAmount);
+      updateDrinkItemAmount(drinkId, newAmount);
     });
   });
 }
 
 // Update item amount in cart
-function updateItemAmount(foodId: number, newAmount: number): void {
-  const item = cart.find((item) => item.id === foodId);
+function updateDrinkItemAmount(drinkId: number, newAmount: number): void {
+  const item = drinkCart.find((item) => item.id === drinkId);
   if (item) {
     item.amount = newAmount;
-    updateCart();
-    saveCartToLocalStorage();
+    updateDrinkCart();
+    saveDrinkCartToLocalStorage();
   }
 }
 
 // Save cart to local storage
-function saveCartToLocalStorage(): void {
-  localStorage.setItem("cart", JSON.stringify(cart));
+function saveDrinkCartToLocalStorage(): void {
+  localStorage.setItem("drinkCart", JSON.stringify(drinkCart));
 }
 
 // Load cart from local storage
-function loadCartFromLocalStorage(): void {
-  const storedCart = localStorage.getItem("cart");
+function loadDrinkCartFromLocalStorage(): void {
+  const storedCart = localStorage.getItem("drinkCart");
   if (storedCart) {
-    cart = JSON.parse(storedCart);
-    updateCart();
+    drinkCart = JSON.parse(storedCart);
+    updateDrinkCart();
   }
 }
 
 // Place order
+// Function to decode a JWT token
 interface JwtPayload {
   phone: string;
   email: string;
@@ -272,7 +280,7 @@ interface JwtPayload {
   address: string;
 }
 
-function parseJWT(token: string): JwtPayload {
+function parseJwt(token: string): JwtPayload {
   const base64Url = token.split(".")[1];
   const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   const jsonPayload = decodeURIComponent(
@@ -285,13 +293,16 @@ function parseJWT(token: string): JwtPayload {
   return JSON.parse(jsonPayload);
 }
 
-function placeOrder(): void {
-  if (cart.length === 0) {
+// Function to place an order
+function placeDrinkOrder() {
+  if (drinkCart.length === 0) {
     alert("Your cart is empty. Add items before placing an order!");
     return;
   }
 
+  // Retrieve the token from sessionStorage
   const authToken = sessionStorage.getItem("authToken");
+  console.log(authToken);
   if (!authToken) {
     const message = "User is not authenticated. Please log in.";
     document.getElementById("message")!.textContent = message;
@@ -302,11 +313,15 @@ function placeOrder(): void {
     setTimeout(() => {
       window.location.href = "/pages/login.html";
     }, 2000);
+
     return;
   }
 
-  const userInfo = parseJWT(authToken);
+  // Decode the token to get user information
+  const userInfo = parseJwt(authToken);
+  console.log(userInfo);
 
+  // Construct the order data including user information
   const orderData = {
     user: {
       phone: userInfo.phone,
@@ -314,19 +329,19 @@ function placeOrder(): void {
       name: userInfo.name,
       address: userInfo.address,
     },
-    items: cart,
+    items: drinkCart,
   };
-
-  fetch("https://reqres.in/api/foods", {
+  console.log(orderData);
+  fetch("https://reqres.in/api/order", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(orderData),
   })
     .then((response) => {
       if (!response.ok) throw new Error("Order submission failed.");
-      cart = [];
-      updateCart();
-      saveCartToLocalStorage();
+      drinkCart = [];
+      updateDrinkCart();
+      saveDrinkCartToLocalStorage();
       alert("Order placed successfully!");
     })
     .catch((error) => {
@@ -336,9 +351,9 @@ function placeOrder(): void {
 }
 
 // Load cart from local storage on page load
-loadCartFromLocalStorage();
+loadDrinkCartFromLocalStorage();
 
-placeOrderButton.addEventListener("click", placeOrder);
+drinkPlaceOrderButton.addEventListener("click", placeDrinkOrder);
 
-// Initial display of food items
-displayFoodItems();
+// Initial display of drink items
+displayDrinkItems();

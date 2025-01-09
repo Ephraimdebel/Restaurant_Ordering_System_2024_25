@@ -16,6 +16,7 @@ export class MenuService {
   ) {}
   async createMenuItem(createMenuItemDto: CreateMenuItemDto): Promise<MenuItem> {
     const { categoryId, ...menuData } = createMenuItemDto;
+    console.log("createMenuItemDto", createMenuItemDto);
 
     const category = await this.categoryRepository.findOne({ where: { id: categoryId } });
     if (!category) {

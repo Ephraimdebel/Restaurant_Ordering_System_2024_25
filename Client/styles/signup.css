@@ -22,12 +22,12 @@ header{
 }
 
 .signUpImg img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
 .signupIntro p {
-  margin: 50px 40px 10px 40px ;
+  margin: 50px 0px 10px 0px ;
   color:#4b727a;
  font-weight: bolder;
   font-size: 16px;
@@ -62,7 +62,7 @@ input::placeholder {
   border-radius: 0;
 }
 .card {
-  margin: 0px 50px 10px 50px;
+  margin: 0px 50px 10px 0px;
   border: none;
   border-radius: 0;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -154,7 +154,21 @@ input::placeholder {
 
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
+  .card{
+    margin: 0px auto 100px;
+    width: 90% !important;
+  }
+  .signUpImg img{
+    width: 75%;
+    margin: 0 0px 0 90px;
+  }
+
+  .imgForm{
+    display: flex;
+    flex-direction: column;
+    height: 140vh;
+  }
   .welcome-message h1{
     font-size: 48px;
   }
@@ -189,7 +203,13 @@ input::placeholder {
 @media (max-width: 480px) {
  .signUpImg img{
     display: none;
-    background-color: red;
+  }
+  .card {
+    margin: 0 20px ;
+  }
+  .imgForm{
+    gap: 0;
+    height: 50vh;
   }
   .footer-heading {
     font-size: 1rem;
