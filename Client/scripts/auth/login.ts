@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Optionally redirect to another page
         window.location.pathname = "/index.html"; // Adjust as necessary
       } else {
-        ShowMessage("Token not found in the response!", true);
+        ShowMessage("Token not found in the response!");
       }
     } catch (error) {
       /* showMessage(error.message); */
