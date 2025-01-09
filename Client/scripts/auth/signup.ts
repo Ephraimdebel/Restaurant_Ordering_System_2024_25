@@ -1,7 +1,7 @@
 const signupForm = document.getElementById("signupForm") as HTMLFormElement;
 
 if (signupForm) {
-  signupForm.addEventListener("submit", (event) => {
+  signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = (document.getElementById("name") as HTMLInputElement).value;
@@ -14,47 +14,71 @@ if (signupForm) {
     const favoriteCuisine = (
       document.getElementById("favoriteCuisine") as HTMLSelectElement
     ).value;
+    const messageElement = document.getElementById("message");
+
     if (!name) {
-      document.getElementById("message").textContent = "Name is required.";
+      messageElement.textContent = "Name is required.";
       return;
     }
 
     if (!email) {
-      document.getElementById("message").textContent = "Email is required.";
+      messageElement.textContent = "Email is required.";
       return;
     }
 
     if (!password) {
-      document.getElementById("message").textContent = "Password is required.";
+      messageElement.textContent = "Password is required.";
       return;
     }
 
     if (!phone) {
-      document.getElementById("message").textContent = "Phone number is required.";
+      messageElement.textContent = "Phone number is required.";
       return;
     }
 
     if (!address) {
-      document.getElementById("message").textContent = "Address is required.";
+      messageElement.textContent = "Address is required.";
       return;
     }
 
     if (!favoriteCuisine) {
-      document.getElementById("message").textContent = "Please select your favorite cuisine.";
+      messageElement.textContent = "Please select your favorite cuisine.";
       return;
     }
 
     if (phone.length !== 10 || isNaN(Number(phone))) {
-      document.getElementById("message").textContent = "Please enter a valid 10-digit phone number.";
+      messageElement.textContent = "Please enter a valid 10-digit phone number.";
       return;
     }
 
-    // Mock signup logic
-    const newUser = { name, email, password, phone, address, favoriteCuisine };
-    console.log("User signed up:", newUser);
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          phone,
+          address,
+          favoriteCuisine,
+        }),
+      });
 
-    // Redirect to the login page after successful signup
-    alert(`Welcome, ${name}! Your account has been created successfully.`);
-    window.location.href = "login.html";
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+      console.log("User signed up:", result);
+
+      // Redirect to the login page after successful signup
+      alert(`Welcome, ${name}! Your account has been created successfully.`);
+      window.location.href = "login.html";
+    } catch (error) {
+      messageElement.textContent = `Signup failed: ${error.message}`;
+    }
   });
 }

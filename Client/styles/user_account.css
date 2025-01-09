@@ -22,12 +22,13 @@
 .editForm {
   display: none;
   position: absolute;
-
-  padding: 50px;
-  top: 50%;
+  padding: 100px;
+  top: 34px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 90px);
   z-index: 1;
+  margin-top: 20px;
+  scale: 1.05;
 }
 
 .editForm img {
