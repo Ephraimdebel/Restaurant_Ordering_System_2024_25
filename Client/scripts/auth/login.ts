@@ -16,11 +16,11 @@ async function postData(url: string, data: object): Promise<any> {
 }
 
 // Utility to display messages
-function showMessage(message: string, isError: boolean = false): void {
-  const messageDiv = document.getElementById("message")!;
-  messageDiv.textContent = message;
-  messageDiv.style.color = isError ? "red" : "green";
-}
+// function showMessage(message: string, isError: boolean = false): void {
+//   const messageDiv = document.getElementById("message")!;
+//   messageDiv.textContent = message;
+//   messageDiv.style.color = isError ? "red" : "green";
+// }
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm") as HTMLFormElement;
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("https://reqres.in/api/login", {
+      const response = await postData("http://10.5.223.1:3333/auth/login", {
         email,
         password,
       });
@@ -45,12 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Store token securely (e.g., sessionStorage)
       sessionStorage.setItem("authToken", token);
 
-      showMessage("Login successful!");
+      console.log(token);
 
       // Optionally redirect to another page
       window.location.href = "/index.html";
     } catch (error) {
-      showMessage(error.message, true);
+      /* showMessage(error.message); */
+      console.log("error", error);
     }
   });
 });
