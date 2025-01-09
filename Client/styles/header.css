@@ -200,8 +200,10 @@
 }
 
 .explore-button:hover {
-  background-color: #4b727a;
-  color: #ffd700;
+   background-color: #3e5b60; 
+  color: #ffffff; 
+  transform: scale(1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* General footer styles */
