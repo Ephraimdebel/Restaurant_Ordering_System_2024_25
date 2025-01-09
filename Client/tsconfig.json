@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",       // Target ECMAScript version
-    "module": "commonjs",  // Module system
-    "outDir": "./dist",
-         // Folder to store compiled JavaScript
-  },
-  "include": ["src/**/*.ts"]  // Include all TypeScript files in the `src` folder
+    "target": "ES2015", // or higher version
+    "lib": ["ES2015", "DOM"], // include ES2015 for Promise support
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  }
 }
+
