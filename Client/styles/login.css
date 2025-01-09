@@ -1,5 +1,7 @@
 /* Global Styles */
 body {
+   margin: 0;
+  padding: 0;
   background-color: white;
   font-family: "Arial", sans-serif;
   color: #333;
@@ -25,7 +27,7 @@ h1 {
 }
 
 .signUpImg img {
-  max-width: 600px;
+   max-width: 600px;
   height: auto;
 }
 .btn-primary{
@@ -205,11 +207,32 @@ a {
   font-size: 0.9rem;
   color: #bdc3c7;
 }
-
-
 /* Responsive styles */
-@media (max-width: 768px) {
-  
+@media (max-width: 968px) {
+  .card{
+    margin: 0px auto 100px;
+    width: 90% !important;
+  }
+  .signUpImg img{
+    width: 75%;
+    margin: 0 0px 0 90px;
+  }
+
+  .imgForm{
+    display: flex;
+    flex-direction: column;
+    height: 140vh;
+  }
+  .welcome-message h1{
+    font-size: 48px;
+  }
+  .welcome-message h2{
+    font-size: 36px;
+  }
+  .welcome-message h3{
+    font-size: 24px;
+
+  }
   footer{
     padding: 20px 3px;
   }
@@ -234,7 +257,13 @@ a {
 @media (max-width: 480px) {
  .signUpImg img{
     display: none;
-    background-color: red;
+  }
+  .card {
+    margin: 0 20px ;
+  }
+  .imgForm{
+    gap: 0;
+    height: 80vh;
   }
   .footer-heading {
     font-size: 1rem;
