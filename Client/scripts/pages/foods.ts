@@ -135,12 +135,12 @@ function displayFoodItems(): void {
     button.addEventListener("click", () => {
       const foodId = parseInt((button as HTMLElement).getAttribute("data-id")!);
       addToCart(foodId);
-      showMessage("Item added to cart!");
+      ShowMessage("Item added to cart!");
     })
   );
 }
 
-function showMessage(message: string): void {
+function ShowMessage(message: string, p0: boolean): void {
   const messageDiv = document.getElementById("message")!;
   messageDiv.textContent = message;
   messageDiv.style.display = "block";

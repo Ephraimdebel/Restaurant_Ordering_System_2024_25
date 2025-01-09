@@ -1,0 +1,110 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Form container styling */
+  .form-container {
+    background-color: #ffffff;
+    padding: 25px 35px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 420px;
+  }
+  
+  h1 {
+    font-size: 26px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  /* Input styling */
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Input hover and focus states */
+  input:hover {
+    border-color: #7f8c8d;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #275060;
+    box-shadow: 0 0 4px rgba(39, 80, 96, 0.4);
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #275060;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Button hover and active states */
+  button:hover {
+    background-color: #1e404d;
+  }
+  
+  button:active {
+    background-color: #163237;
+    transform: scale(0.98);
+  }
+  
+  /* Button disabled state */
+  button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 480px) {
+    .form-container {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 22px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
+  

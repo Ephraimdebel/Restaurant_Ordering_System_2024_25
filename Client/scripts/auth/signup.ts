@@ -1,84 +1,69 @@
-const signupForm = document.getElementById("signupForm") as HTMLFormElement;
+let signupForm = document.getElementById("signupForm") as HTMLFormElement;
 
 if (signupForm) {
+  // signupForm.addEventListener("submit", async (event) => {
   signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const name = (document.getElementById("name") as HTMLInputElement).value;
     const email = (document.getElementById("email") as HTMLInputElement).value;
-    const password = (document.getElementById("password") as HTMLInputElement)
-      .value;
-    const phone = (document.getElementById("phone") as HTMLInputElement).value;
-    const address = (document.getElementById("address") as HTMLInputElement)
-      .value;
-    const favoriteCuisine = (
-      document.getElementById("favoriteCuisine") as HTMLSelectElement
-    ).value;
+    const password = (document.getElementById("password") as HTMLInputElement).value;
+    const phoneNumber = (document.getElementById("phone") as HTMLInputElement).value;
+
     const messageElement = document.getElementById("message");
 
     if (!name) {
-      messageElement.textContent = "Name is required.";
+      if (messageElement) messageElement.textContent = "Name is required.";
       return;
     }
 
     if (!email) {
-      messageElement.textContent = "Email is required.";
+      if (messageElement) messageElement.textContent = "Email is required.";
       return;
     }
 
     if (!password) {
-      messageElement.textContent = "Password is required.";
+      if (messageElement) messageElement.textContent = "Password is required.";
       return;
     }
 
-    if (!phone) {
-      messageElement.textContent = "Phone number is required.";
+    if (!phoneNumber) {
+      if (messageElement) messageElement.textContent = "Phone number is required.";
       return;
     }
 
-    if (!address) {
-      messageElement.textContent = "Address is required.";
+    if (phoneNumber.length !== 10 || isNaN(Number(phoneNumber))) {
+      if (messageElement) messageElement.textContent = "Please enter a valid 10-digit phone number.";
       return;
     }
 
-    if (!favoriteCuisine) {
-      messageElement.textContent = "Please select your favorite cuisine.";
-      return;
-    }
-
-    if (phone.length !== 10 || isNaN(Number(phone))) {
-      messageElement.textContent = "Please enter a valid 10-digit phone number.";
-      return;
-    }
+    // Mock signup logic
+    const newUser = { name, email, password, phoneNumber };
+    console.log("User signed up:", newUser);
 
     try {
-      const response = await fetch("/api/signup", {
+      const endpoint = "http://localhost:3333/users/register";
+      const response = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-          phone,
-          address,
-          favoriteCuisine,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newUser),
       });
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      if (response.ok) {
+        alert("Signup successful! You can now log in.");
+        // Redirect to the login page after successful signup
+        window.location.href = "login.html";
+      } else {
+        if (messageElement) {
+          const error = await response.text();
+          messageElement.textContent = `Signup failed: ${error}`;
+        }
       }
-
-      const result = await response.json();
-      console.log("User signed up:", result);
-
-      // Redirect to the login page after successful signup
-      alert(`Welcome, ${name}! Your account has been created successfully.`);
-      window.location.href = "login.html";
     } catch (error) {
-      messageElement.textContent = `Signup failed: ${error.message}`;
+      if (messageElement) messageElement.textContent = `An error occurred: ${error}`;
     }
+
   });
+  // });
 }
+

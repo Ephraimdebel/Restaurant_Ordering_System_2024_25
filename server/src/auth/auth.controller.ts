@@ -14,7 +14,8 @@ export class AuthController {
     @Post('login')
     @UseGuards(LocalAuthGuard)
     login(@Req() req: Request) {
-        return req.user;
+
+    return { token: req.user }; // `req.user` should be the token after LocalAuthGuard successfully validates the user
     }
     @Get('status')
     @UseGuards(JwtAuthGuard)
