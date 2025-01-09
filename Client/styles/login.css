@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 h1 {
@@ -16,18 +16,66 @@ h1 {
   text-align: center;
 }
 
-p {
-  font-size: 1rem;
-  color: #6c757d;
+.imgForm {
+  display: flex;
+  gap: 10px;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+}
+
+.signUpImg img {
+  max-width: 600px;
+  height: auto;
+}
+.btn-primary{
+   border: none;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out, transform 0.2s ease-out; 
+  border-radius: 5px;
+  padding: 12px 20px; 
+  background-color: #4b727a;
+  color: #ffd700;
+  font-size: 16px; 
+  cursor: pointer; 
+}
+.btn-primary:hover {
+  background-color: #3e5b60; 
+  color: #ffffff; 
+  transform: scale(1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+ .text-primary{
+ color: #3333;
+ font-size: 12px;
+ 
+}
+.text-center{
+  color: #333;
+  font-size: 12px;
+}
+.text{
+  color:#4b727a;
+  text-decoration:underline;
+}
+.loginPara p {
+ margin: 50px 40px 40px 40px ;
+  color:#4b727a;
+ font-weight: bolder;
+  font-size: 16px;
   text-align: center;
 }
 
 /* Form Card */
-.card {
-  margin: auto;
+
+  .card {
+  width: 600px;
+  height: auto;
+  margin: 0px 50px 10px 50px;
   border: none;
   border-radius: 0;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  justify-content: left;
+  
 }
 
 .form-control {
@@ -51,29 +99,152 @@ p {
   font-size: 0.9rem;
 }
 
-/* footer { */
-/* margin-top: 30px; */
-/* font-size: 0.9rem; */
-/* color: #666; */
-/* } */
+.button{
+  width: 100%;
+   border: none;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out, transform 0.2s ease-out; 
+  border-radius: 5px;
+  padding: 12px 20px; 
+  background-color: #4b727a;
+  color: #ffd700;
+  font-size: 16px; 
+  cursor: pointer; 
+}
+.button:hover{
+  background-color: #3e5b60; 
+  color: #ffffff; 
+  transform: scale(1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Ensure form content takes equal space as the image */
+.imgForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px; /* Space between image and form */
+}
 
-footer p {
-  margin-top: 20px;
+/* Ensure the form content aligns well */
+.form-container {
+  flex: 1; /* Take up available space */
+  padding: 20px; /* Add spacing inside the form container */
 }
 #message {
   text-align: center;
 }
 a {
-  color: #4b727a !important;
+  color: #4b727a ;
+  text-decoration: underline;
 }
 .text-primary {
-  color: #4b727a !important;
+  color: #4b727a ;
 }
 .link {
-  text-decoration: none;
-  color: white !important;
+  text-decoration:none;
+  color: white ;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 1.1rem;
   transition: color 0.3s ease;
+}
+/* General footer styles */
+.footer {
+    background-color: #4b727a;
+    color: #ecf0f1;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section styles */
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #FFD700;
+  text-transform: uppercase;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list-item {
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: WHITE;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+}
+
+
+.footer-link:hover {
+  color: #f39c12 I !important;
+}
+
+/* Copyright section */
+.footer-copyright {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  
+  footer{
+    padding: 20px 3px;
+  }
+ .signupIntro p {
+  margin: 0px auto ;
+  color:#4b727a;
+ font-weight: bolder;
+  font-size: 16px;
+  text-align: center;
+
+}
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+ .signUpImg img{
+    display: none;
+    background-color: red;
+  }
+  .footer-heading {
+    font-size: 1rem;
+  }
+
+  .footer-list-item {
+    font-size: 0.9rem;
+  }
+
+  .footer-link {
+    font-size: 0.9rem;
+  }
 }
