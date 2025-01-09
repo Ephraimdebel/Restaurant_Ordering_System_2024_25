@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - G-5 Restaurant App</title>
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="./../styles/bootstrap.min.css" />
+   <link rel="stylesheet" href="../styles/bootstrap.css">
     <link rel="stylesheet" href="../styles/signup.css" />
     <link rel="stylesheet" href="../styles/header.css" />
   </head>
@@ -63,23 +63,26 @@
         </div>
       </nav>
     </header>
-    <h1>Sign Up G-5 Restaurant</h1>
-    <p>Join our community and enjoy exclusive discounts and updates!</p>
+    <!-- <h1>Sign Up G-5 Restaurant</h1> -->
+<div class="imgForm" >
+<div class="signUpImg">
+<img src="../Asset/signUp.jpg" alt="">
+</div>
     <div id="message" style="color: red; text-align: center"></div>
-    <main class="card p-4 shadow-sm" style="max-width: 600px; width: 100%">
+    <main class="card p-4 shadow-sm" style="max-width: 700px; width: 100%">
       <form id="signupForm">
+        <div class="signupIntro">
+    <p>Join our community and enjoy your discounts</p>
+    </div>
+    <div class="member">
+       <p >
+        Already a member?
+        <a href="login.html">Login here</a>
+      </p>
+    </div>
         <div class="mb-3">
-          <label for="name" class="form-label">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            class="form-control"
-            placeholder="Enter your name"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
+           <div class="mb-3">
+          <!-- <label for="email" class="form-label">Email</label> -->
           <input
             type="email"
             id="email"
@@ -88,18 +91,20 @@
             required
           />
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+         
+        <div class="namePhone">
+          <div class="name">
           <input
-            type="password"
-            id="password"
+            type="text"
+            id="name"
             class="form-control"
-            placeholder="Create a strong password"
+            placeholder="Enter your name"
             required
           />
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Phone Number</label>
+       </div>
+       
+        
+           <div class="phone">
           <input
             type="tel"
             id="phone"
@@ -108,6 +113,20 @@
             required
           />
         </div>
+        </div>
+    </div>
+        <div class="mb-3">
+        
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Create a strong password"
+            required
+          />
+        </div>
+         <button type="submit" class="btn btn-success w-100">Sign Up</button>
+       
         <!-- <div class="mb-3">
           <label for="address" class="form-label">Address</label>
           <input
@@ -130,17 +149,47 @@
           </select>
         </div> -->
         <br />
-        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+       
       </form>
-      <p class="text-center mt-3">
-        Already a member?
-        <a href="login.html" class="text-success">Login here</a>
-      </p>
+      </div>
+     
     </main>
-    <footer class="text-center">
-      <p>&copy; 2025 Restaurant App. All rights reserved.</p>
-    </footer>
-    <!-- <script src="../dist/auth/signup.js"></script> -->
+   
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3 class="footer-heading">Quick Links</h3>
+        <ul class="footer-list">
+          <li><a href="/" class="footer-link">Home</a></li>
+          <li><a href="/aboutPage" class="footer-link">Our Story</a></li>
+          <li><a href="/menus" class="footer-link">Menus</a></li>
+          <li><a href="/orderUs" class="footer-link">Order Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-heading">Contact Us</h3>
+        <ul class="footer-list">
+          <li>Sanford: +251 941 000 022</li>
+          <li>Bole Atlas: +251 900 989 898</li>
+          <li>4Killo: +251 900 898 989</li>
+          <li>Email: lond2601@gmail.com</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-heading">Follow Us</h3>
+        <ul class="footer-list">
+          <li><a href="#" class="footer-link">Facebook</a></li>
+          <li><a href="#" class="footer-link">Twitter</a></li>
+          <li><a href="#" class="footer-link">Instagram</a></li>
+          <li><a href="#" class="footer-link">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      © 2023 Alphapatisserie Co. All rights reserved.
+    </div>
+  </footer>
 
     <script src="../scripts/auth/signup.js"></script>
   </body>
