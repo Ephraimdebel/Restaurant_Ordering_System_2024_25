@@ -140,7 +140,7 @@ function displayFoodItems(): void {
   );
 }
 
-function ShowMessage(message: string, p0: boolean): void {
+function ShowMessage(message: string): void {
   const messageDiv = document.getElementById("message")!;
   messageDiv.textContent = message;
   messageDiv.style.display = "block";

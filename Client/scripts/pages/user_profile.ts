@@ -2,13 +2,18 @@ interface UserProfile {
   name: string;
   email: string;
   phone: string;
-  avatar: string;
   address: string;
   orders: { id: number; date: string; items: string[]; total: number }[];
 }
 
 // Sample user data
 let userProfile: UserProfile;
+const authToken = sessionStorage.getItem("authToken");
+if (!authToken) {
+  alert("User is not authenticated. Redirecting to login.");
+  window.location.href = "/pages/login.html";
+  return;
+}
 
 fetch("/api/getUserProfile")
   .then((response) => response.json())
@@ -35,7 +40,7 @@ fetch("/api/getUserProfile")
       .map((n) => n[0])
       .join("");
     avatarElement.alt = initials;
-    avatarElement.src = userProfile.avatar; // Set avatar image source
+    // Set avatar image source
 
     // Add order history
     userProfile.orders.forEach((order) => {
@@ -58,7 +63,6 @@ userProfile = {
   name: "Systemd Admin",
   email: "systemd@linux.com",
   phone: "0978556748",
-  avatar: "https://via.placeholder.com/150",
   address: "Addis Ababa, Ethiopia",
   orders: [
     // { id: 1, date: "2025-01-01", items: ["Pizza", "Soda"], total: 25.99 },
@@ -114,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       userProfile.email;
     (document.getElementById("phone") as HTMLInputElement).value =
       userProfile.phone;
-    (document.getElementById("address") as HTMLInputElement).value =
+    (document.getElementById("password") as HTMLInputElement).value =
       userProfile.address;
   });
 
@@ -125,51 +129,85 @@ document.addEventListener("DOMContentLoaded", () => {
     editForm.style.display =
       editForm.style.display === "none" ? "block" : "none";
   });
-
   // Handle form submission
   const signupForm = document.getElementById("signupForm") as HTMLFormElement;
-  signupForm.addEventListener("submit", (e) => {
+  signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Update userProfile with new data
-    userProfile.name = (
-      document.getElementById("name") as HTMLInputElement
-    ).value;
-    userProfile.email = (
-      document.getElementById("email") as HTMLInputElement
-    ).value;
-    userProfile.phone = (
-      document.getElementById("phone") as HTMLInputElement
-    ).value;
-    userProfile.address = (
-      document.getElementById("address") as HTMLInputElement
-    ).value;
+    const userProfile = {
+      name: (document.getElementById("name") as HTMLInputElement).value.trim(),
+      email: (
+        document.getElementById("email") as HTMLInputElement
+      ).value.trim(),
+      phone: (
+        document.getElementById("phone") as HTMLInputElement
+      ).value.trim(),
+      address: (
+        document.getElementById("address") as HTMLInputElement
+      ).value.trim(),
+    };
 
-    // Update displayed profile info
-    nameElement.textContent = "Name: " + userProfile.name;
-    emailElement.textContent = "Email: " + userProfile.email;
-    phoneElement.textContent = "Phone: " + userProfile.phone;
-    addressElement.textContent = "Address: " + userProfile.address;
-    console.log(userProfile);
-    // Post updated profile to the database
+    // Validate inputs
+    if (
+      !userProfile.name ||
+      !userProfile.email ||
+      !userProfile.phone ||
+      !userProfile.address
+    ) {
+      alert("All fields are required!");
+      return;
+    }
 
-    fetch("/api/updateUserProfile", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userProfile),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    // Get auth token
+    const authToken = sessionStorage.getItem("authToken");
+    if (!authToken) {
+      alert("User is not authenticated. Redirecting to login.");
+      window.location.href = "/pages/login.html";
+      return;
+    }
+
+    // Parse user ID from JWT
+    try {
+      const parseJWT = (token: string) => {
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+        const jsonPayload = decodeURIComponent(
+          atob(base64)
+            .split("")
+            .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+            .join("")
+        );
+        return JSON.parse(jsonPayload);
+      };
+      const userId = parseJWT(authToken).user_id;
+
+      // Send PUT request to update user data
+      const response = await fetch(`http://10.5.90.145:3333/users/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authToken}`,
+        },
+        body: JSON.stringify(userProfile),
       });
 
-    // Optionally hide the form after saving
-    const editForm = document.getElementById("editForm")!;
-    editForm.style.display = "none";
+      if (response.ok) {
+        const data = await response.json();
+        alert("Profile updated successfully!");
+        console.log("Success:", data);
+
+        // Optionally hide the form
+        const editForm = document.getElementById("editForm")!;
+        editForm.style.display = "none";
+      } else {
+        const error = await response.json();
+        console.error("Error:", error);
+        alert(`Failed to update profile: ${error.message || "Unknown error"}`);
+      }
+    } catch (err) {
+      console.error("Error parsing JWT or making request:", err);
+      alert("An error occurred. Please try again.");
+    }
   });
 });
