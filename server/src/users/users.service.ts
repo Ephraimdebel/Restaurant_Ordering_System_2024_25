@@ -16,11 +16,17 @@ export class UsersService {
     private readonly roleRepository: Repository<Role>,
   ) {}
 
+
   async create(createUserDto: CreateUserDto): Promise<User> {
     const { name, email, password, phoneNumber, roleId } = createUserDto;
-    const role = await this.roleRepository.findOne({ where: { id: roleId } });
+
+    const effectiveRoleId = roleId || 3;
+
+    const role = await this.roleRepository.findOne({ where: { id: effectiveRoleId } });
     if (!role) throw new Error('Role not found');
 
+
+    // console.log(createUserDto)
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = this.userRepository.create({
       name,

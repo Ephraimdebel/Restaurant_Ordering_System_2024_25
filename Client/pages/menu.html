@@ -77,10 +77,10 @@
               <label for="menu-category">Category</label>
               <select id="menu-category" required>
                 <option value="" disabled selected>Select a category</option>
-                <option value="appetizer">Appetizer</option>
-                <option value="main-course">Main Course</option>
-                <option value="dessert">Dessert</option>
-                <option value="beverages">Beverages</option>
+                <option value="Cake">Cake</option>
+                <option value="Drinks">Drinks</option>
+                <option value="Torta">Torta</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="form-group">
@@ -92,11 +92,15 @@
               <input type="file" id="menu-image" accept="image/*" required>
               <div id="image-preview"></div>
             </div>
-            <button type="submit" id="submit-button">Add Menu</button>
+            <div class="form-group">
+              <label for="menu-description">Description</label>
+              <input type="text" id="menu-description" placeholder="Enter description" required>
+            </div>
+            <button type="button" id="submit-button">Add Menu</button>
           </form>
         </section>
       </main>
 
-    <script src="../dir/pages/menu.js"></script>
+    <script src="../scripts/pages/menu.js"></script>
 </body>
 </html>
