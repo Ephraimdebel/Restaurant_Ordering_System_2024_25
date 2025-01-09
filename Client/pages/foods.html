@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/bootstrap.min.css" />
-    <link rel="stylesheet" href="./styles/header.css" />
-
-    <title>Home</title>
+    <title>Food Ordering System</title>
+    <link rel="stylesheet" href="./../styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="./../styles/food.css" />
+    <link rel="stylesheet" href="./../styles/header.css" />
   </head>
   <body>
     <header>
@@ -33,7 +33,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link" href="./index.html">Home</a>
+                <a class="nav-link link" href="./../index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link link" href="/about">Our Story</a>
@@ -71,10 +71,7 @@
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a
-                  id="logoutBtn"
-                  class="nav-link link logoutButton"
-                  href="./pages/login.html"
+                <a class="nav-link link logoutButton" href="./login.html"
                   >Logout</a
                 >
               </li>
@@ -82,27 +79,53 @@
               <li class="nav-item">
                 <a
                   class="nav-link link accountButton"
-                  href="./pages/user_account.html"
+                  href="./user_account.html"
                   >Account</a
                 >
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link contactButton" href="./pages/order_us.html"
-                  >Order Us</a
-                >
+              <li class="nav-item cart">
+                <img
+                  src="./../assets/img/cart.svg"
+                  class="nav-link contactButton"
+                  id="cart-button"
+                  onclick="cart()"
+                /><span id="cart-length"></span>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+    <h1
+      style="
+        text-align: center;
+        color: #4b727a;
+        font-weight: bold;
+        margin: 50px 0;
+      "
+    >
+      Foods
+    </h1>
     <main>
+      <section id="food-list">
+        <!-- Food items dynamically populated here -->
+      </section>
+      <aside id="cart">
+        <h2>Cart</h2>
+        <ol id="cart-items"></ol>
+        <button id="place-order">Place Order</button>
+      </aside>
       <div id="message"></div>
     </main>
-    <script src="./dist/pages/header.js"></script>
-    <!-- <script src="./dist/auth/token.js"></script> -->
-    <script src="./dist/pages/script.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="./../dist/pages/foods.js" type="module"></script>
+    <script>
+      function cart() {
+        document.getElementById("cart").style.display == "grid"
+          ? (document.getElementById("cart").style.display = "none")
+          : (document.getElementById("cart").style.display = "grid");
+      }
+    </script>
+    <script src="./../dist/pages/header.js"></script>
   </body>
 </html>
