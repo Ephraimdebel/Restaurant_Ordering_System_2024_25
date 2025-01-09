@@ -30,6 +30,10 @@
   margin-top: 20px;
   scale: 1.05;
 }
+svg {
+  color: white;
+  background-color: aliceblue;
+}
 
 .editForm img {
   width: 50px;

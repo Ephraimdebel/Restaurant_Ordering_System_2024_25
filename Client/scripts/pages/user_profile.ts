@@ -61,9 +61,9 @@ userProfile = {
   avatar: "https://via.placeholder.com/150",
   address: "Addis Ababa, Ethiopia",
   orders: [
-    { id: 1, date: "2025-01-01", items: ["Pizza", "Soda"], total: 25.99 },
-    { id: 2, date: "2025-01-03", items: ["Burger", "Fries"], total: 18.5 },
-    { id: 3, date: "2025-01-05", items: ["Pasta", "Wine"], total: 32.75 },
+    // { id: 1, date: "2025-01-01", items: ["Pizza", "Soda"], total: 25.99 },
+    // { id: 2, date: "2025-01-03", items: ["Burger", "Fries"], total: 18.5 },
+    // { id: 3, date: "2025-01-05", items: ["Pasta", "Wine"], total: 32.75 },
   ],
 };
 // Populate user profile data
