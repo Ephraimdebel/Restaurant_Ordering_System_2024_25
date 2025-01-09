@@ -58,12 +58,14 @@ svg {
   background-color: red;
 }
 #edit-profile-btn {
-  background-color: #ffd700;
+  background-color: #FFD700;
   border: none;
+  color: #4B727A;
 }
 #edit-profile-btn:hover {
   transition: transform 0.2s, background-color 0.2s;
-  background-color: #ffd700;
+  background-color: #4B727A;
+  color:#FFD700 ;
 }
 
 @media (max-width: 768px) {

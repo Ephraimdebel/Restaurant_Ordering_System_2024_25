@@ -1,19 +1,23 @@
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Page Styles */
 .find-us-page {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   color: #333;
   padding-bottom: 50px;
 }
 
+/* Hero Section */
 .hero-section-findus {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 60vh; /* Adjusted for responsiveness */
   background-size: cover;
   background-position: center;
 }
@@ -35,16 +39,17 @@
 
 .hero-title-findus {
   color: white;
-  font-size: 3rem;
+  font-size: 2.5rem; /* Adjusted for responsiveness */
   font-weight: 700;
 }
 
 .hero-subtitle-findus {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Adjusted for responsiveness */
   margin-top: 15px;
   max-width: 800px;
   line-height: 1.5;
+  padding: 0 10px; /* Added padding for smaller screens */
 }
 
 /* Animations */
@@ -72,27 +77,28 @@
   animation: slideUp 1.2s ease-out;
 }
 
+/* Locations Section */
 .locations {
   margin: 40px auto;
-  padding: 20px;
+  padding: 15px; /* Adjusted for responsiveness */
   max-width: 1200px;
 }
 
 .section-title {
   font-size: 2rem;
-  color: #f77f00;
+  color: #4B727A;
   margin-bottom: 40px;
   position: relative;
 }
 
 .location {
   background-color: white;
-  padding: 40px; 
+  padding: 20px; /* Adjusted for responsiveness */
   margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-  height: 100px; 
+  height: auto; /* Removed fixed height */
 }
 
 .location:hover {
@@ -100,13 +106,14 @@
 }
 
 .location h3 {
-  color: #f77f00;
-  font-size: 1.5rem;
+  color: #4B727A;
+  font-size: 1.2rem; /* Adjusted for responsiveness */
 }
 
+/* Opening Hours Section */
 .opening-hours {
   background-color: #f4f4f4;
-  padding: 30px;
+  padding: 20px; /* Adjusted for responsiveness */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   max-width: 1000px;
@@ -116,4 +123,53 @@
 .opening-hours p {
   font-size: 1.1rem;
   margin: 10px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero-title-findus {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle-findus {
+    font-size: 1rem;
+  }
+
+  .locations {
+    padding: 10px;
+  }
+
+  .location {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-findus {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle-findus {
+    font-size: 0.9rem;
+  }
+
+  .locations {
+    padding: 5px;
+  }
+
+  .location {
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .opening-hours p {
+    font-size: 0.9rem;
+  }
 }

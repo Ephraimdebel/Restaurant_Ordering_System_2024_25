@@ -32,6 +32,7 @@
 .navLinks li {
   display: flex;
   align-items: center;
+ 
 }
 
 .navbar:hover {
@@ -45,15 +46,16 @@
   font-weight: bold;
   font-size: 1.1rem;
   transition: color 0.3s ease;
+  
 }
 
 .link:hover {
-  color: #ffd700;
+  color:#FFD700;
 }
 
 .link:focus,
 .menuButton:focus {
-  outline: 2px solid #ffd700;
+  outline: 2px solid #FFD700;
   outline-offset: 4px;
 }
 
@@ -63,15 +65,18 @@
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 1.1rem;
-  background-color: #ff6347;
+   background-color: #FFD700;
+  border: none;
+  color: #4B727A;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .contactButton:hover {
-  background-color: #ff4500;
-  color: #fff;
+  background-color: #4B727A;
+  border: 2px solid ;
+  color:#FFD700 ;
 }
 
 /* Dropdown Menu Enhancements */
@@ -186,8 +191,8 @@
   padding: 10px 20px;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  background-color: #ffd700;
-  color: #4b727a;
+  background-color: #4b727a;
+  color: #ffd700;
   border: none;
   border-radius: 5px;
   cursor: pointer;
