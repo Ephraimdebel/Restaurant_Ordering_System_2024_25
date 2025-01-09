@@ -265,16 +265,62 @@ function loadCartFromLocalStorage(): void {
 }
 
 // Place order
+interface JwtPayload {
+  phone: string;
+  email: string;
+  name: string;
+  address: string;
+}
+
+function parseJWT(token: string): JwtPayload {
+  const base64Url = token.split(".")[1];
+  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  const jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+      .join("")
+  );
+
+  return JSON.parse(jsonPayload);
+}
+
 function placeOrder(): void {
   if (cart.length === 0) {
     alert("Your cart is empty. Add items before placing an order!");
     return;
   }
 
+  const authToken = sessionStorage.getItem("authToken");
+  if (!authToken) {
+    const message = "User is not authenticated. Please log in.";
+    document.getElementById("message")!.textContent = message;
+    document.getElementById("message")!.style.display = "block";
+    setTimeout(() => {
+      document.getElementById("message")!.style.display = "none";
+    }, 2000);
+    setTimeout(() => {
+      window.location.href = "/pages/login.html";
+    }, 2000);
+    return;
+  }
+
+  const userInfo = parseJWT(authToken);
+
+  const orderData = {
+    user: {
+      phone: userInfo.phone,
+      email: userInfo.email,
+      name: userInfo.name,
+      address: userInfo.address,
+    },
+    items: cart,
+  };
+
   fetch("https://reqres.in/api/foods", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items: cart }),
+    body: JSON.stringify(orderData),
   })
     .then((response) => {
       if (!response.ok) throw new Error("Order submission failed.");

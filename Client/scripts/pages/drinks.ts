@@ -17,6 +17,7 @@ const drinkCartButton = document.getElementById(
 ) as HTMLImageElement;
 
 let drinkCart: DrinkItem[] = [];
+
 const drinkProducts: DrinkItem[] = [
   {
     id: 1,
@@ -303,7 +304,15 @@ function placeDrinkOrder() {
   const authToken = sessionStorage.getItem("authToken");
   console.log(authToken);
   if (!authToken) {
-    alert("User is not authenticated. Please log in.");
+    const message = "User is not authenticated. Please log in.";
+    document.getElementById("message")!.textContent = message;
+    document.getElementById("message")!.style.display = "block";
+    setTimeout(() => {
+      document.getElementById("message")!.style.display = "none";
+    }, 2000);
+    setTimeout(() => {
+      window.location.href = "/pages/login.html";
+    }, 2000);
 
     return;
   }

@@ -28,7 +28,9 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"
+              ><img src="./../assets/img/menu.svg" alt=""
+            /></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -61,10 +63,14 @@
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a class="dropdown-item link" href="/menu/cakes">Cakes</a>
+                    <a class="dropdown-item link" href="/pages/foods.html"
+                      >Foods</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item link" href="/menu/drinks">Drinks</a>
+                    <a class="dropdown-item link" href="/pages/drinks.html"
+                      >Drinks</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -111,12 +117,14 @@
       <section id="food-list">
         <!-- Food items dynamically populated here -->
       </section>
-      <aside id="cart">
-        <h2>Cart</h2>
-        <ol id="cart-items"></ol>
-        <button id="place-order">Place Order</button>
-      </aside>
-      <div id="message"></div>
+      <section class="cart-section">
+        <aside id="cart">
+          <h2>Cart</h2>
+          <ol id="cart-items"></ol>
+          <button id="place-order">Place Order</button>
+        </aside>
+        <div id="message"></div>
+      </section>
     </main>
     <script src="./../dist/pages/foods.js" type="module"></script>
     <script>
