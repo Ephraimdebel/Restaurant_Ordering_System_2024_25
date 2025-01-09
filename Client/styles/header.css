@@ -36,7 +36,15 @@
 .navbar:hover {
   background-color: #3e5a60;
 }
-
+.find-us-page{
+  position: relative;
+text-align: center;
+color: #fff;
+overflow: hidden;
+background-size: cover; 
+background-position: center; 
+background-attachment: fixed; 
+}
 .link {
   text-decoration: none;
   color: white;
@@ -62,9 +70,9 @@
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 1.1rem;
-  background-color: #ffd700;
-  border: none;
-  color: #4b727a;
+  background-color: #4b727a;
+  color: #ffd700;
+  border: 2px solid;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -73,7 +81,7 @@
 .contactButton:hover {
   background-color: #4b727a;
   border: 2px solid;
-  color: #ffd700;
+  color: #ffff;
 }
 
 /* Dropdown Menu Enhancements */
