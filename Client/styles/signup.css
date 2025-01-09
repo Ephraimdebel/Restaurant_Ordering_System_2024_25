@@ -18,11 +18,11 @@ header{
   gap: 10px;
   justify-content: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
-  height: 110vh; /* Make the container take the full viewport height */
+  height: 100vh; /* Make the container take the full viewport height */
 }
 
 .signUpImg img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
