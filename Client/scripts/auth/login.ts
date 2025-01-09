@@ -16,7 +16,7 @@ async function postData(url: string, data: object): Promise<any> {
 }
 
 // Utility to display messages
-function showMessage(message: string, isError: boolean = false): void {
+function showMessages(message: string, isError: boolean = false): void {
   const messageDiv = document.getElementById("message")!;
   messageDiv.textContent = message;
   messageDiv.style.color = isError ? "red" : "green";
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Optionally redirect to another page
       window.location.href = "/index.html";
     } catch (error) {
-      showMessage(error.message, true);
+      showMessages(error.message, true);
     }
   });
 });
