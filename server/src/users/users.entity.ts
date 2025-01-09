@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDateColumn } from 'typeorm';
-
+import { Role } from '../roles/role.entity';
+import { Order } from 'src/orders/orders.entity';
 
 @Entity('users')
 export class User {
@@ -18,5 +19,12 @@ export class User {
   @Column({ nullable: true })
   phoneNumber: string;
 
+  @ManyToOne(() => Role, (role) => role.users, { eager: true })
+  role: Role;
 
+  @CreateDateColumn()
+  created_at: Date;
+
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
 }
