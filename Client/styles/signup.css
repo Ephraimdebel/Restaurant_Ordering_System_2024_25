@@ -16,9 +16,9 @@ header{
 .imgForm {
   display: flex;
   gap: 10px;
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
-  height: 100vh; /* Make the container take the full viewport height */
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
 }
 
 .signUpImg img {
@@ -65,7 +65,7 @@ input::placeholder {
   margin: 0px 50px 10px 0px;
   border: none;
   border-radius: 0;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   justify-content: left;
 }
 
