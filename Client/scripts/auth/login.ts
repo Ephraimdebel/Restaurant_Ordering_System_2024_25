@@ -16,12 +16,11 @@ async function postData(url: string, data: object): Promise<any> {
 }
 
 // Utility to display messages
-function showMessage(message: string, isError: boolean = false): void {
-  const messageDiv = document.getElementById("message")!;
-  messageDiv.textContent = message;
-  messageDiv.style.color = isError ? "red" : "green";
-}
-
+// function showMessage(message: string, isError: boolean = false): void {
+//   const messageDiv = document.getElementById("message")!;
+//   messageDiv.textContent = message;
+//   messageDiv.style.color = isError ? "red" : "green";
+// }
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm") as HTMLFormElement;
 
@@ -47,15 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Store token securely (e.g., sessionStorage)
         sessionStorage.setItem("authToken", token);
 
-        showMessage("Login successful!");
+        ShowMessage("Login successful!");
 
         // Optionally redirect to another page
         window.location.pathname = "/index.html"; // Adjust as necessary
       } else {
-        showMessage("Token not found in the response!", true);
+        ShowMessage("Token not found in the response!", true);
       }
     } catch (error) {
-      showMessage(error.message, true);
+      /* showMessage(error.message); */
+      console.log("error", error);
     }
   });
 });

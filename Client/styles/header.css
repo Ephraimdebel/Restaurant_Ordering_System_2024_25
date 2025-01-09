@@ -1,4 +1,3 @@
-
 .navbar {
   display: flex;
   justify-content: center;
@@ -32,7 +31,6 @@
 .navLinks li {
   display: flex;
   align-items: center;
- 
 }
 
 .navbar:hover {
@@ -46,16 +44,15 @@
   font-weight: bold;
   font-size: 1.1rem;
   transition: color 0.3s ease;
-  
 }
 
 .link:hover {
-  color:#FFD700;
+  color: #ffd700;
 }
 
 .link:focus,
 .menuButton:focus {
-  outline: 2px solid #FFD700;
+  outline: 2px solid #ffd700;
   outline-offset: 4px;
 }
 
@@ -65,18 +62,18 @@
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 1.1rem;
-   background-color: #FFD700;
+  background-color: #ffd700;
   border: none;
-  color: #4B727A;
+  color: #4b727a;
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .contactButton:hover {
-  background-color: #4B727A;
-  border: 2px solid ;
-  color:#FFD700 ;
+  background-color: #4b727a;
+  border: 2px solid;
+  color: #ffd700;
 }
 
 /* Dropdown Menu Enhancements */
@@ -167,17 +164,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 80px;
-  background: rgba(255, 255, 255, 0); 
+  background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  
 }
-.welcome-message h1{
+.welcome-message h1 {
   font-size: 100px;
 }
-
-.welcome-message h2{
+.navbar-toggler:focus {
+  box-shadow: none;
+  border: none;
+}
+.welcome-message h2 {
   font-size: 60px;
 }
 .welcome-message h1,
@@ -200,18 +199,18 @@
 }
 
 .explore-button:hover {
-   background-color: #3e5b60; 
-  color: #ffffff; 
-  transform: scale(1); 
+  background-color: #3e5b60;
+  color: #ffffff;
+  transform: scale(1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* General footer styles */
 .footer {
-    background-color: #4b727a;
-    color: #ecf0f1;
-    padding: 40px 20px;
-    text-align: center;
+  background-color: #4b727a;
+  color: #ecf0f1;
+  padding: 40px 20px;
+  text-align: center;
 }
 .footer-container {
   display: flex;
@@ -231,7 +230,7 @@
 .footer-heading {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #FFD700;
+  color: #ffd700;
   text-transform: uppercase;
 }
 
@@ -264,40 +263,48 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .welcome-message h1{
+  .navbar-toggler-icon {
+    display: block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+  .welcome-message h1 {
     font-size: 48px;
   }
-  .welcome-message h2{
+  .welcome-message h2 {
     font-size: 36px;
   }
-  .welcome-message h3{
+  .welcome-message h3 {
     font-size: 24px;
-
   }
-  footer{
+
+  footer {
     padding: 20px 3px;
   }
-  
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .footer-section {
-        text-align: center;
-    }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
-  .welcome-message h1{
+  .welcome-message h1 {
     font-size: 48px;
   }
-  .welcome-message h2{
+  .welcome-message h2 {
     font-size: 36px;
   }
-  .welcome-message h3{
+  .welcome-message h3 {
     font-size: 24px;
-
   }
   .footer-heading {
     font-size: 1rem;
@@ -309,5 +316,14 @@
 
   .footer-link {
     font-size: 0.9rem;
+  }
+  .navbar-toggler-icon {
+    display: block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
   }
 }

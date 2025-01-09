@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Ordering System</title>
     <link rel="stylesheet" href="./../styles/bootstrap.min.css" />
-    <link rel="stylesheet" href="./../styles/food.css" />
+    <link rel="stylesheet" href="./../styles/drinks.css" />
     <link rel="stylesheet" href="./../styles/header.css" />
   </head>
   <body>
@@ -111,22 +111,20 @@
         margin: 50px 0;
       "
     >
-      Foods
+      Drinks
     </h1>
     <main>
-      <section id="food-list">
+      <section id="drink-list">
         <!-- Food items dynamically populated here -->
       </section>
-      <section class="cart-section">
-        <aside id="cart">
-          <h2>Cart</h2>
-          <ol id="cart-items"></ol>
-          <button id="place-order">Place Order</button>
-        </aside>
-        <div id="message"></div>
-      </section>
+      <aside id="cart">
+        <h2>Cart</h2>
+        <ol id="cart-items"></ol>
+        <button id="place-order">Place Order</button>
+      </aside>
+      <div id="message"></div>
     </main>
-    <script src="./../dist/pages/foods.js" type="module"></script>
+    <script src="./../dist/pages/drinks.js" type="module"></script>
     <script>
       function cart() {
         document.getElementById("cart").style.display == "grid"

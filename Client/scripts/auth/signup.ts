@@ -1,7 +1,7 @@
 let signupForm = document.getElementById("signupForm") as HTMLFormElement;
 
 if (signupForm) {
-  signupForm.addEventListener("submit", async (event) => {
+  // signupForm.addEventListener("submit", async (event) => {
   signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -64,6 +64,6 @@ if (signupForm) {
     }
 
   });
-  });
+  // });
 }
 
