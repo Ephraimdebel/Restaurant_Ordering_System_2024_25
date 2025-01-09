@@ -110,10 +110,10 @@ function displayFoodItems() {
     addToCartButtons.forEach((button) => button.addEventListener("click", () => {
         const foodId = parseInt(button.getAttribute("data-id"));
         addToCart(foodId);
-        showsMessages("Item added to cart!");
+        ShowMessage("Item added to cart!");
     }));
 }
-function showsMessages(message) {
+function ShowMessage(message, p0) {
     const messageDiv = document.getElementById("message");
     messageDiv.textContent = message;
     messageDiv.style.display = "block";
