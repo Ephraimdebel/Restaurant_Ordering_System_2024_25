@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("https://reqres.in/api/login", {
+      const response = await postData("http://10.5.223.1:3333/auth/login", {
         email,
         password,
       });
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Store token securely (e.g., sessionStorage)
       sessionStorage.setItem("authToken", token);
 
-      showMessage("Login successful!");
+      console.log(token);
 
       // Optionally redirect to another page
       window.location.href = "/index.html";
