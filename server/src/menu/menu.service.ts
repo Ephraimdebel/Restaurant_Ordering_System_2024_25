@@ -34,5 +34,42 @@ export class MenuService {
       relations: ['category'], // Make sure to load the 'category' relation
     });
   }
+
+  async deleteMenuItem(id: number): Promise<{ message: string }> {
+    const menuItem = await this.menuRepository.findOne({ where: { id } });
+    if (!menuItem) {
+      throw new NotFoundException(`Menu item with ID ${id} not found`);
+    }
+    await this.menuRepository.remove(menuItem);
+    return { message: `Menu item with ID ${id} has been deleted` };
+  }
+  
+  async updateMenuItem(
+    id: number,
+    updateMenuItemDto: Partial<CreateMenuItemDto>,
+  ): Promise<MenuItem> {
+    const menuItem = await this.menuRepository.findOne({
+      where: { id },
+      relations: ['category'],
+    });
+  
+    if (!menuItem) {
+      throw new NotFoundException(`Menu item with ID ${id} not found`);
+    }
+  
+    if (updateMenuItemDto.categoryId) {
+      const category = await this.categoryRepository.findOne({
+        where: { id: updateMenuItemDto.categoryId },
+      });
+      if (!category) {
+        throw new NotFoundException(`Category with ID ${updateMenuItemDto.categoryId} not found`);
+      }
+      menuItem.category = category;
+    }
+  
+    Object.assign(menuItem, updateMenuItemDto);
+    return this.menuRepository.save(menuItem);
+  }
+  
 }
 // INSERT INTO categories (name) VALUES ('Burgers'), ('Drinks'), ('Desserts');
