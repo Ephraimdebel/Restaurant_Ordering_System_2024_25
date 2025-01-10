@@ -167,7 +167,7 @@ h1 {
   margin-top: 200px !important;
   margin-bottom: 20px !important;
 }
-.cart-section {
+/* .cart-section {
   display: block;
   position: fixed;
   top: 0;
@@ -178,7 +178,7 @@ h1 {
   z-index: 2;
   background-color: #333;
   opacity: 0.5;
-}
+} */
 .navbarNav {
   z-index: 10;
 }
