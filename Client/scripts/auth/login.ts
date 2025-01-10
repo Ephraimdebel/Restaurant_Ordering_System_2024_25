@@ -16,11 +16,11 @@ async function postData(url: string, data: object): Promise<any> {
 }
 
 // Utility to display messages
-// function showMessage(message: string, isError: boolean = false): void {
-//   const messageDiv = document.getElementById("message")!;
-//   messageDiv.textContent = message;
-//   messageDiv.style.color = isError ? "red" : "green";
-// }
+function ShowMessagess(message: string, isError: boolean = false): void {
+  const messageDiv = document.getElementById("message")!;
+  messageDiv.textContent = message;
+  messageDiv.style.color = isError ? "red" : "green";
+}
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm") as HTMLFormElement;
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("http://localhost:3333/auth/login", {
+      const response = await postData("http://10.5.205.111:3333/auth/login", {
         email,
         password,
       });
@@ -46,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Store token securely (e.g., sessionStorage)
         sessionStorage.setItem("authToken", token);
 
-        ShowMessage("Login successful!");
+        ShowMessagess("Login successful!");
 
         // Optionally redirect to another page
-        window.location.pathname = "/index.html"; // Adjust as necessary
+        window.location.pathname = "/Client/index.html"; // Adjust as necessary
       } else {
-        ShowMessage("Token not found in the response!");
+        ShowMessagess("Token not found in the response!");
       }
     } catch (error) {
       /* showMessage(error.message); */
