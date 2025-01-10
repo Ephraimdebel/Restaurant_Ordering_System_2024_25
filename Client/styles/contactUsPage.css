@@ -25,7 +25,7 @@ body {
 .contactUs h2 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-     color:#ffd700 ;
+     color:#fff;
 
 }
 
@@ -51,6 +51,7 @@ body {
     flex: 1;
     min-width: 300px;
     padding: 20px;
+    
 }
 
 .contact-info h2 {
@@ -60,7 +61,8 @@ body {
 
 .contact-info ul {
     list-style: none;
-    margin-top: 20px;
+     margin: 60x;
+
 }
 
 .contact-info li {
@@ -75,10 +77,12 @@ body {
 
 .email a {
     color: #4B727A;
+    margin: 60x;
 }
 
 .social-media {
     padding: 20px 0;
+     margin:60x;
 }
 
 .social-media a {

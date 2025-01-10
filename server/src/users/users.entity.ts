@@ -20,6 +20,7 @@ export class User {
   phoneNumber: string;
 
   @ManyToOne(() => Role, (role) => role.users, { eager: true })
+  // @defaultValue({ id: 2 })
   role: Role;
 
   @CreateDateColumn()

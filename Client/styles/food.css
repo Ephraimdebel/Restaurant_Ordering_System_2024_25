@@ -56,7 +56,7 @@ main {
   width: 200px;
   margin: 1rem auto;
   padding: 0.7rem;
-  background: goldenrod;
+  background: #4b727a;
   color: #fff;
   border: none;
 
@@ -66,7 +66,7 @@ main {
 }
 
 .food-item button:hover {
-  background: #ffd700;
+  background: #4b727a;
 }
 .contactButton {
   background-color: transparent !important;
@@ -145,7 +145,7 @@ button.delete:hover {
 }
 
 #place-order:hover {
-  background: #ffd700;
+  background: #4b727a;
 }
 /* Notification styles */
 #message {
@@ -167,18 +167,29 @@ h1 {
   margin-top: 200px !important;
   margin-bottom: 20px !important;
 }
+<<<<<<< HEAD
 /* .cart-section {
   display: block;
+=======
+.cart-section {
+  display: none;
+>>>>>>> origin/main
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: 100vh;
+<<<<<<< HEAD
   z-index: 2;
   background-color: #333;
   opacity: 0.5;
 } */
+=======
+
+  background: rgba(0, 0, 0, 0.5);
+}
+>>>>>>> origin/main
 .navbarNav {
   z-index: 10;
 }
@@ -193,14 +204,13 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none;
+  display: block;
   flex: 1;
   background: #fff;
   border: 1px solid #ddd;
-  z-index: 10;
+  z-index: 90;
   padding: 1.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  opacity: 0;
 }
 @keyframes fadeInOut {
   0%,

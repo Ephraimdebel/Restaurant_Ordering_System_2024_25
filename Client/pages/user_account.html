@@ -50,7 +50,6 @@
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle menuButton"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -60,14 +59,17 @@
                 </a>
                 <ul
                   class="dropdown-menu"
+                  id="dropdown-menu"
                   style="background-color: #4b727a"
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a class="dropdown-item link" href="/menu/cakes">Cakes</a>
+                    <a class="dropdown-item link" href="./foods.html">Foods</a>
                   </li>
                   <li>
-                    <a class="dropdown-item link" href="/menu/drinks">Drinks</a>
+                    <a class="dropdown-item link" href="./drinks.html"
+                      >Drinks</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -87,11 +89,14 @@
                 >
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link contactButton" href="./order_us.html"
-                  >Order Us</a
-                >
-              </li>
+              <!-- <li class="nav-item cart"> -->
+              <!-- <img -->
+              <!-- src="./../assets/img/cart.svg" -->
+              <!-- class="nav-link contactButton" -->
+              <!-- id="cart-button" -->
+              <!-- onclick="cart()" -->
+              <!-- /><span id="cart-length"></span> -->
+              <!-- </li> -->
             </ul>
           </div>
         </div>
@@ -147,29 +152,6 @@
               placeholder="Enter your phone number"
               required
             />
-          </div>
-          <div class="mb-3">
-            <label for="address" class="form-label">Address</label>
-            <input
-              id="address"
-              class="form-control"
-              rows="3"
-              placeholder="Enter your address"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="favoriteCuisine" class="form-label"
-              >Favorite Food</label
-            >
-            <select id="favoriteCuisine" class="form-select" required>
-              <option value="" disabled selected>Favorite Food</option>
-              <option value="Italian">Pizza</option>
-              <option value="Mexican">Burger</option>
-              <option value="Indian">Desert</option>
-              <option value="Chinese">Ircib</option>
-              <option value="American">Sandwich</option>
-            </select>
           </div>
           <br />
           <button type="submit" class="btn btn-success w-100">

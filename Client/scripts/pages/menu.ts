@@ -1,4 +1,4 @@
-type FoodItem = {
+type foodItem = {
   id: number;
   name: string;
   price: number;

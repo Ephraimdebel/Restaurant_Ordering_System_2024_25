@@ -2,9 +2,9 @@ type DrinkItem = {
   id: number;
   name: string;
   price: number;
-  image: string;
-  desc?: string; // Optional description
-  amount?: number; // Optional amount
+  description?: string; // Optional description
+  imageUrl?: string; // Optional amount
+  amount: number;
 };
 
 const drinkList: HTMLElement = document.getElementById("drink-list")!;
@@ -18,122 +18,45 @@ const drinkCartButton = document.getElementById(
 
 let drinkCart: DrinkItem[] = [];
 
-const drinkProducts: DrinkItem[] = [
-  {
-    id: 1,
-    name: "Chocolate Cake",
-    price: 5.99,
-    image:
-      "https://static01.nyt.com/images/2023/10/27/multimedia/27cakerex-plzm/27cakerex-plzm-superJumbo.jpg",
-    desc: `A rich and moist chocolate cake made with high-quality cocoa powder and layered with creamy chocolate frosting.`,
-  },
-  {
-    id: 2,
-    name: "Red Velvet Cake",
-    price: 6.99,
-    image:
-      "https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg",
-    desc: `A classic red velvet cake with a hint of cocoa, layered with cream cheese frosting and topped with red crumbs.`,
-  },
-  {
-    id: 3,
-    name: "Carrot Cake",
-    price: 4.99,
-    image:
-      "https://www.errenskitchen.com/wp-content/uploads/2018/06/Vanilla-Sponge-Cake-1-recipe-card-500x375.jpg",
-    desc: `A moist and flavorful carrot cake made with grated carrots, walnuts, and a rich cream cheese frosting.`,
-  },
-  {
-    id: 4,
-    name: "Lemon Drizzle Cake",
-    price: 7.99,
-    image:
-      "https://static01.nyt.com/images/2023/10/27/multimedia/27cakerex-plzm/27cakerex-plzm-superJumbo.jpg",
-    desc: `A light and zesty lemon drizzle cake, perfect for a refreshing dessert, topped with a sweet lemon glaze.`,
-  },
-  {
-    id: 1,
-    name: "Chocolate Cake",
-    price: 5.99,
-    image:
-      "https://static01.nyt.com/images/2023/10/27/multimedia/27cakerex-plzm/27cakerex-plzm-superJumbo.jpg",
-    desc: `A rich and moist chocolate cake made with high-quality cocoa powder and layered with creamy chocolate frosting.`,
-  },
-  {
-    id: 2,
-    name: "Red Velvet Cake",
-    price: 6.99,
-    image:
-      "https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg",
-    desc: `A classic red velvet cake with a hint of cocoa, layered with cream cheese frosting and topped with red crumbs.`,
-  },
-  {
-    id: 3,
-    name: "Carrot Cake",
-    price: 4.99,
-    image:
-      "https://www.errenskitchen.com/wp-content/uploads/2018/06/Vanilla-Sponge-Cake-1-recipe-card-500x375.jpg",
-    desc: `A moist and flavorful carrot cake made with grated carrots, walnuts, and a rich cream cheese frosting.`,
-  },
-  {
-    id: 4,
-    name: "Lemon Drizzle Cake",
-    price: 7.99,
-    image:
-      "https://static01.nyt.com/images/2023/10/27/multimedia/27cakerex-plzm/27cakerex-plzm-superJumbo.jpg",
-    desc: `A light and zesty lemon drizzle cake, perfect for a refreshing dessert, topped with a sweet lemon glaze.`,
-  },
-  {
-    id: 1,
-    name: "Chocolate Cake",
-    price: 5.99,
-    image:
-      "https://static01.nyt.com/images/2023/10/27/multimedia/27cakerex-plzm/27cakerex-plzm-superJumbo.jpg",
-    desc: `A rich and moist chocolate cake made with high-quality cocoa powder and layered with creamy chocolate frosting.`,
-  },
-  {
-    id: 2,
-    name: "Red Velvet Cake",
-    price: 6.99,
-    image:
-      "https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg",
-    desc: `A classic red velvet cake with a hint of cocoa, layered with cream cheese frosting and topped with red crumbs.`,
-  },
-  {
-    id: 3,
-    name: "Carrot Cake",
-    price: 4.99,
-    image:
-      "https://www.errenskitchen.com/wp-content/uploads/2018/06/Vanilla-Sponge-Cake-1-recipe-card-500x375.jpg",
-    desc: `A moist and flavorful carrot cake made with grated carrots, walnuts, and a rich cream cheese frosting.`,
-  },
-  {
-    id: 4,
-    name: "Lemon Drizzle Cake",
-    price: 7.99,
-    image:
-      "https://static01.nyt.com/images/2023/10/27/multimedia/27cakerex-plzm/27cakerex-plzm-superJumbo.jpg",
-    desc: `A light and zesty lemon drizzle cake, perfect for a refreshing dessert, topped with a sweet lemon glaze.`,
-  },
-];
+let drinkProducts: DrinkItem[] = [];
+async function fetchDrinkProducts(): Promise<void> {
+  try {
+    const response = await fetch(`http://10.5.205.111:3333/menu/2`);
+    console.log(response);
+    if (!response.ok) throw new Error("Failed to fetch food items.");
+    const data: FoodItem[] = await response.json();
+    drinkProducts = data.map((item) => ({
+      ...item,
+      price: Number(item.price),
+    }));
 
-// Display drink items
+    console.log("Fetched food items:", drinkProducts);
+    displayDrinkItems();
+  } catch (error) {
+    console.error("Error fetching food items:", error);
+  }
+}
+
+fetchDrinkProducts();
+
+// Display food items
 function displayDrinkItems(): void {
   drinkList.innerHTML = "";
   drinkProducts.forEach((drink) => {
+    const trimmedName = drink.name.replace(/^"|"$/g, "");
+    const trimmedDescription = drink.description?.replace(/^"|"$/g, "") || "";
     const item = document.createElement("div");
     item.className = "drink-item";
     item.innerHTML = `
-            <img src="${drink.image}" alt="${drink.name}" />
-            <h3>${drink.name}</h3>
-            <p>${drink.desc}</p>
-            <p><strong>$${drink.price.toFixed(2)}</strong></p>
-            <button class="add-to-cart" data-id="${
-              drink.id
-            }">Add to Cart</button>
-        `;
+      <img src="${drink.imageUrl}" alt="${trimmedName}" />
+      <h3>${trimmedName}</h3>
+      <p>${trimmedDescription}</p>
+      <p><strong>$${drink.price}</strong></p>
+      <button class="add-to-cart" data-id="${drink.id}">Add to Cart</button>
+    `;
     drinkList.appendChild(item);
   });
+
   // Attach event listeners for "Add to Cart" buttons
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   addToCartButtons.forEach((button) =>
@@ -311,7 +234,7 @@ function placeDrinkOrder() {
       document.getElementById("message")!.style.display = "none";
     }, 2000);
     setTimeout(() => {
-      window.location.href = "/pages/login.html";
+      window.location.pathname = "Client/pages/login.html";
     }, 2000);
 
     return;
@@ -321,18 +244,24 @@ function placeDrinkOrder() {
   const userInfo = parseJwt(authToken);
   console.log(userInfo);
 
-  // Construct the order data including user information
   const orderData = {
     user: {
-      phone: userInfo.phone,
-      email: userInfo.email,
-      name: userInfo.name,
-      address: userInfo.address,
+      user_id: userInfo.user_id,
     },
+    catagory: "drink",
+    status: "Pending",
     items: drinkCart,
+    payment: {
+      amount: 30.5,
+      payment_method: "Credit Card",
+      status: "Paid",
+    },
   };
+
+  console.log(drinkCart);
+  console.log(typeof drinkCart);
   console.log(orderData);
-  fetch("https://reqres.in/api/order", {
+  fetch("http://10.5.205.111:3333/order/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(orderData),
@@ -342,10 +271,12 @@ function placeDrinkOrder() {
       drinkCart = [];
       updateDrinkCart();
       saveDrinkCartToLocalStorage();
-      alert("Order placed successfully!");
+      console.log("Order placed successfully!");
     })
     .catch((error) => {
-      alert("An error occurred while placing your order. Please try again.");
+      console.log(
+        "An error occurred while placing your order. Please try again."
+      );
       console.error(error);
     });
 }
