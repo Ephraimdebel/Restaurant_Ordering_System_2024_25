@@ -54,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ShowMessagess("Token not found in the response!");
       }
     } catch (error) {
-      /* showMessage(error.message); */
-      console.log("error", error);
+      showMessages(error.message, true);
     }
   });
 });

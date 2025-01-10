@@ -68,120 +68,120 @@ function ShowMessage(message: string): void {
   }, 2000);
 }
 
-// Add to cart
-function addToCart(foodId: number): void {
-  const food = products.find((item) => item.id === foodId);
-  if (!food) return;
-  const existingItem = cart.find((item) => item.id === foodId);
-  if (existingItem) {
-    existingItem.amount += 1;
-  } else {
-    cart.push({ ...food, amount: 1 });
-  }
+// // Add to cart
+// function addToCart(foodId: number): void {
+//   const food = products.find((item) => item.id === foodId);
+//   if (!food) return;
+//   const existingItem = cart.find((item) => item.id === foodId);
+//   if (existingItem) {
+//     existingItem.amount += 1;
+//   } else {
+//     cart.push({ ...food, amount: 1 });
+//   }
 
-  updateCart();
-  saveCartToLocalStorage();
-}
+//   updateCart();
+//   saveCartToLocalStorage();
+// }
 
-// Delete from cart
-function deleteFromCart(foodId: number): void {
-  cart = cart.filter((item) => item.id !== foodId);
-  updateCart();
-  saveCartToLocalStorage();
-}
+// // Delete from cart
+// function deleteFromCart(foodId: number): void {
+//   cart = cart.filter((item) => item.id !== foodId);
+//   updateCart();
+//   saveCartToLocalStorage();
+// }
 
-// Update cart UI
-function updateCart(): void {
-  cartLength.textContent = cart.length.toString();
-  cartItems.innerHTML = "";
+// // Update cart UI
+// function updateCart(): void {
+//   cartLength.textContent = cart.length.toString();
+//   cartItems.innerHTML = "";
 
-  if (cart.length === 0) {
-    cartButton.src = "../assets/img/empty.svg";
-    return;
-  }
+//   if (cart.length === 0) {
+//     cartButton.src = "../assets/img/empty.svg";
+//     return;
+//   }
 
-  cartButton.src = "../assets/img/cart.svg";
-  let totalCost = 0;
+//   cartButton.src = "../assets/img/cart.svg";
+//   let totalCost = 0;
 
-  const maxLength = Math.max(...cart.map((item) => item.name.length));
-  const headerRow = document.createElement("li");
-  headerRow.classList.add("cart-header");
-  headerRow.innerHTML = `<span style="display: inline-block; font-weight:bold;width: ${maxLength}ch;">Item</span><span style="font-weight:bold;">Quantity</span><span style="font-weight:bold;">Price Each</span><span style="font-weight:bold;">Delete</span>`;
-  cartItems.appendChild(headerRow);
-  cart.forEach((item, index) => {
-    const li = document.createElement("li");
-    li.innerHTML = `<span style="display: inline-block; width: ${maxLength}ch;"> ${
-      index + 1
-    }.
-      ${item.name}</span>
-      <select class="item-amount" data-id="${item.id}">
+//   const maxLength = Math.max(...cart.map((item) => item.name.length));
+//   const headerRow = document.createElement("li");
+//   headerRow.classList.add("cart-header");
+//   headerRow.innerHTML = `<span style="display: inline-block; font-weight:bold;width: ${maxLength}ch;">Item</span><span style="font-weight:bold;">Quantity</span><span style="font-weight:bold;">Price Each</span><span style="font-weight:bold;">Delete</span>`;
+//   cartItems.appendChild(headerRow);
+//   cart.forEach((item, index) => {
+//     const li = document.createElement("li");
+//     li.innerHTML = `<span style="display: inline-block; width: ${maxLength}ch;"> ${
+//       index + 1
+//     }.
+//       ${item.name}</span>
+//       <select class="item-amount" data-id="${item.id}">
       
-        ${Array.from({ length: 10 }, (_, i) => i + 1)
-          .map(
-            (i) => `
-          <option value="${i}" ${
-              i === item.amount ? "selected" : ""
-            }>${i}</option>
-        `
-          )
-          .join("")}
-      </select>
-      <span>
-      = $${item.price.toFixed(2)} * ${item.amount.toFixed(0)}
-      </span>`;
-    const headerRow = document.createElement("li");
+//         ${Array.from({ length: 10 }, (_, i) => i + 1)
+//           .map(
+//             (i) => `
+//           <option value="${i}" ${
+//               i === item.amount ? "selected" : ""
+//             }>${i}</option>
+//         `
+//           )
+//           .join("")}
+//       </select>
+//       <span>
+//       = $${item.price.toFixed(2)} * ${item.amount.toFixed(0)}
+//       </span>`;
+//     const headerRow = document.createElement("li");
 
-    totalCost += item.price * item.amount;
+//     totalCost += item.price * item.amount;
 
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Remove";
-    deleteButton.classList.add("delete");
-    deleteButton.addEventListener("click", () => deleteFromCart(item.id));
+//     const deleteButton = document.createElement("button");
+//     deleteButton.textContent = "Remove";
+//     deleteButton.classList.add("delete");
+//     deleteButton.addEventListener("click", () => deleteFromCart(item.id));
 
-    li.appendChild(deleteButton);
-    cartItems.appendChild(li);
-  });
+//     li.appendChild(deleteButton);
+//     cartItems.appendChild(li);
+//   });
 
-  const totalCostElement = document.createElement("p");
-  totalCostElement.textContent = `Total Cost: $${totalCost.toFixed(2)}`;
-  cartItems.appendChild(totalCostElement);
+//   const totalCostElement = document.createElement("p");
+//   totalCostElement.textContent = `Total Cost: $${totalCost.toFixed(2)}`;
+//   cartItems.appendChild(totalCostElement);
 
-  // Attach event listeners for amount dropdowns
-  const amountDropdowns = document.querySelectorAll(".item-amount");
-  amountDropdowns.forEach((dropdown) => {
-    const selectElement = dropdown as HTMLSelectElement;
+//   // Attach event listeners for amount dropdowns
+//   const amountDropdowns = document.querySelectorAll(".item-amount");
+//   amountDropdowns.forEach((dropdown) => {
+//     const selectElement = dropdown as HTMLSelectElement;
 
-    selectElement.addEventListener("change", (event) => {
-      const foodId = parseInt(selectElement.getAttribute("data-id")!);
-      const newAmount = parseInt(selectElement.value);
-      updateItemAmount(foodId, newAmount);
-    });
-  });
-}
+//     selectElement.addEventListener("change", (event) => {
+//       const foodId = parseInt(selectElement.getAttribute("data-id")!);
+//       const newAmount = parseInt(selectElement.value);
+//       updateItemAmount(foodId, newAmount);
+//     });
+//   });
+// }
 
-// Update item amount in cart
-function updateItemAmount(foodId: number, newAmount: number): void {
-  const item = cart.find((item) => item.id === foodId);
-  if (item) {
-    item.amount = newAmount;
-    updateCart();
-    saveCartToLocalStorage();
-  }
-}
+// // Update item amount in cart
+// function updateItemAmount(foodId: number, newAmount: number): void {
+//   const item = cart.find((item) => item.id === foodId);
+//   if (item) {
+//     item.amount = newAmount;
+//     updateCart();
+//     saveCartToLocalStorage();
+//   }
+// }
 
-// Save cart to local storage
-function saveCartToLocalStorage(): void {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+// // Save cart to local storage
+// function saveCartToLocalStorage(): void {
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// }
 
-// Load cart from local storage
-function loadCartFromLocalStorage(): void {
-  const storedCart = localStorage.getItem("cart");
-  if (storedCart) {
-    cart = JSON.parse(storedCart);
-    updateCart();
-  }
-}
+// // Load cart from local storage
+// function loadCartFromLocalStorage(): void {
+//   const storedCart = localStorage.getItem("cart");
+//   if (storedCart) {
+//     cart = JSON.parse(storedCart);
+//     updateCart();
+//   }
+// }
 
 // Place order
 interface JwtPayload {
@@ -198,14 +198,14 @@ function ParseJWT(token: string): JwtPayload {
       .join("")
   );
 
-  return JSON.parse(jsonPayload);
-}
+//   return JSON.parse(jsonPayload);
+// }
 
-function placeOrder(): void {
-  if (cart.length === 0) {
-    alert("Your cart is empty. Add items before placing an order!");
-    return;
-  }
+// function placeOrder(): void {
+//   if (cart.length === 0) {
+//     alert("Your cart is empty. Add items before placing an order!");
+//     return;
+//   }
 
   const authToken = sessionStorage.getItem("authToken");
   if (!authToken) {
@@ -221,7 +221,7 @@ function placeOrder(): void {
     return;
   }
 
-  const userInfo = parseJWT(authToken);
+//   const userInfo = parseJWT(authToken);
 
   const orderData = {
     user: {
@@ -263,10 +263,10 @@ function placeOrder(): void {
     });
 }
 
-// Load cart from local storage on page load
-loadCartFromLocalStorage();
+// // Load cart from local storage on page load
+// loadCartFromLocalStorage();
 
-placeOrderButton.addEventListener("click", placeOrder);
+// placeOrderButton.addEventListener("click", placeOrder);
 
-// Initial display of food items
-displayFoodItems();
+// // Initial display of food items
+// displayFoodItems();
