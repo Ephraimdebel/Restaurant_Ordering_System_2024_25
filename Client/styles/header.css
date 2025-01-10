@@ -63,6 +63,11 @@ background-attachment: fixed;
   outline: 2px solid #ffd700;
   outline-offset: 4px;
 }
+#navbarNav{
+  display: flex;
+  /* gap: 20px; */
+  justify-content: space-between;
+}
 
 .contactButton {
   text-decoration: none;
