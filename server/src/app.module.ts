@@ -38,7 +38,7 @@ import { dataSourceOptions } from '../db/data-source';
 export class AppModule {}
 
 
-//npm run typeorm -- migration:generate "db/migrations/NewMigrations"
+//npm run typeorm -- migration:generate "db/migrations"
 
 
 // {

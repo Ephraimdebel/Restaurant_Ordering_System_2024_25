@@ -7,6 +7,7 @@ export class Order {
   id: number;
 
   @ManyToOne(() => User, (user) => user.orders, { eager: true })
+  
   @JoinColumn({ name: 'user_id' })  // Ensures the column is linked as a foreign key
   user: User;
 
