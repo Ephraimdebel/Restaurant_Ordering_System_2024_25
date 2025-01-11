@@ -32,15 +32,6 @@ async function fetchItems(): Promise<void> {
 
 fetchItems();
 
-// Display food items
-function DisplayFoodItems(): void {
-  injectData()
-  addMenu()
-  deleteMenu()
-  editMenu()
-}
-DisplayFoodItems();
-
 function addMenu() {
   const editForm = document.getElementById("addMenu") as HTMLFormElement;
   const addSubmit = document.getElementById(
@@ -246,3 +237,11 @@ function injectData() {
     foodlist.appendChild(item);
   });
 }
+// Display food items
+function DisplayFoodItems(): void {
+  injectData();
+  addMenu();
+  deleteMenu();
+  editMenu();
+}
+DisplayFoodItems();
