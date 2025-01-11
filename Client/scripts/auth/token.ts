@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
   contentDiv.textContent = `Welcome, ${payload.email}!`;
 
   // Validate token with the server (optional)
-  fetch("https://reqres.in/api/validate-user", {
-    method: "POST",
+  fetch("http://192.168.0.100:3333/auth/status", {
+    method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -44,11 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) {
         throw new Error("Token is invalid");
       }
+      console.log("Token is valid");
       return response.json();
     })
-    .catch(() => {
-      alert("Session expired. Please log in again.");
+    .catch((error) => {
+      console.error("Token validation failed:", error);
+      alert("Token validation failed. Redirecting to login...");
       sessionStorage.removeItem("authToken");
-      window.location.href = "/pages/login.html";
+      let pathname = window.location.pathname;
+      if (pathname.endsWith("/index.html")){
+
+        window.location.pathname = "./pages/login.html";
+      }
+      else{
+        window.location.pathname = "../pages/login.html";
+      }
+
     });
 });

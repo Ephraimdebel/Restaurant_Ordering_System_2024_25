@@ -24,7 +24,7 @@ function ShowMessagess(message: string, isError: boolean = false): void {
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm") as HTMLFormElement;
 
-  loginForm.addEventListener("click", async (event: Event) => {
+  loginForm.addEventListener("submit", async (event: Event) => {
     event.preventDefault();
 
     // Get form values
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("http://10.5.205.111:3333/auth/login", {
+      const response = await postData("http://192.168.0.100:3333/auth/login", {
         email,
         password,
       });

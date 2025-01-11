@@ -111,75 +111,58 @@
         </div>
       </nav>
     </header>
-    <div class="sidebar" id="sidebar">
-      <!-- <h3 class="text-center">G-5 Restaurant</h3> -->
-      <a href="./dashboard.html">Dashboard</a>
-      <a href="./menu.html">Add Menu</a>
-      <a href="./order.html">View Orders</a>
-      <a href="./add_admin.html">Add Admins</a>
-      <a href="./user_display.html">All users</a>
 
-      <a href="/logout">Logout</a>
-    </div>
+    <main style="width: 400px; margin: auto; text-align: center" id="addMenu">
+      <div class="editForm">
+        <h2>Edit Menu Item</h2>
+        <form id="add-menu-form">
+          <div class="form-group">
+            <label for="add-menu-name">Menu Name</label>
+            <input
+              type="text"
+              id="add-menu-name"
+              placeholder="Enter menu name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="add-menu-category">Category</label>
+            <select id="add-menu-category" required>
+              <option value="" disabled selected>Select a category</option>
+              <option value="Cake">Cake</option>
+              <option value="Drinks">Drinks</option>
+              <option value="Torta">Torta</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
 
-    <!-- Hamburger Menu -->
-    <button id="hamburger" class="hamburger">
-      ☰
-    </button>
-    <main
-    style="width: 400px; margin: auto; text-align: center"
-    id="addMenu"
-  >
-    <div class="editForm">
-      <h2>Edit Menu Item</h2>
-      <form id="add-menu-form">
-        <div class="form-group">
-          <label for="add-menu-name">Menu Name</label>
-          <input
-            type="text"
-            id="add-menu-name"
-            placeholder="Enter menu name"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="add-menu-category">Category</label>
-          <select id="add-menu-category" required>
-            <option value="" disabled selected>Select a category</option>
-            <option value="Cake">Cake</option>
-            <option value="Drinks">Drinks</option>
-            <option value="Torta">Torta</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="add-menu-description">Description</label>
-          <textarea
-            id="add-menu-description"
-            placeholder="Enter description"
-            style="width: 100%"
-            required
-          ></textarea>
-        </div>
-        <div class="form-group">
-          <label for="add-menu-price">Price</label>
-          <input
-            type="number"
-            id="add-menu-price"
-            placeholder="Enter price"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="add-menu-image">Upload Image</label>
-          <input type="file" id="add-menu-image" accept="image/*" required />
-          <div id="add-image-preview"></div>
-        </div>
-        <button type="submit" id="add-submit-button">Save Changes</button>
-      </form>
-    </div>
-  </main>
+          <div class="form-group">
+            <label for="add-menu-description">Description</label>
+            <textarea
+              id="add-menu-description"
+              placeholder="Enter description"
+              style="width: 100%"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="add-menu-price">Price</label>
+            <input
+              type="number"
+              id="add-menu-price"
+              placeholder="Enter price"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="add-menu-image">Upload Image</label>
+            <input type="file" id="add-menu-image" accept="image/*" required />
+            <div id="add-image-preview"></div>
+          </div>
+          <button type="submit" id="add-submit-button">Save Changes</button>
+        </form>
+      </div>
+    </main>
     <h1
       style="
         text-align: center;
@@ -203,10 +186,7 @@
         <div id="message"></div>
       </section>
     </main>
-    <aside
-      style="width: 400px; margin: auto; text-align: center"
-      id="editmenu"
-    >
+    <aside style="width: 400px; margin: auto; text-align: center" id="editmenu">
       <div class="editForm">
         <h2>Edit Menu Item</h2>
         <form id="edit-menu-form">
