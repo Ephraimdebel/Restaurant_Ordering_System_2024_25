@@ -6,23 +6,123 @@
     <title>Users Display Page</title>
     <link rel="stylesheet" href="../styles/user_display.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
+
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
-        <h3 class="text-center">G-5 Restaurant</h3>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./menu.html">Add Menu</a>
-        <a href="./order.html">View Orders</a>
-        <a href="./add_admin.html">Add Admins</a>
-        <a href="./user_display.html">All users</a>
-  
-        <a href="/logout">Logout</a>
+ <header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #4b727a">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand"
+          href="#"
+          style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
+        >
+          G-5 Restaurant
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"
+            ><img src="./../assets/img/menu.svg" alt=""
+          /></span>
+        </button>
+        <div class="collapse navbar-collapse flex justify-content-space-between gap-3" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link link" href="./../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./pages/About.html">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./pages/findus.html">Find Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./pages/ReviewPage.html">Reviews</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle menuButton"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menu
+              </a>
+              <ul
+                class="dropdown-menu"
+                id="dropdown-menu"
+                style="background-color: #4b727a"
+                aria-labelledby="navbarDropdown"
+              >
+                <li>
+                  <a class="dropdown-item link" href="./pages/foods.html"
+                    >Foods</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item link" href="./pages/drinks.html"
+                    >Drinks</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item link" href="./pages/cakes.html">Cakes</a>
+                </li>
+                <!-- <li>
+                  <a class="dropdown-item link" href="/menu/drink">Drinks</a>
+                </li> -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link link logoutButton" href="./login.html"
+                >Logout</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link link accountButton"
+                href="./user_account.html"
+                >Account</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link contactButton" href="./pages/dashboard.html"
+                >Dashboard</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-  
-      <!-- Hamburger Menu -->
-      <button id="hamburger" class="hamburger">
-        ☰
-      </button>
+    </nav>
+  </header>
+    <section class="dashboard">
+    <div>
+
+        <div class="sidebar" id="sidebar">
+          <!-- <h3 class="text-center">G-5 Restaurant</h3> -->
+          <a href="./dashboard.html">Dashboard</a>
+          <a href="./menu.html">Add Menu</a>
+          <a href="./order.html">View Orders</a>
+          <a href="./add_admin.html">Add Admins</a>
+          <a href="./user_display.html">All users</a>
+          <a href="/logout">Logout</a>
+        </div>
+      
+        <button id="hamburger" class="hamburger">
+          ☰
+        </button>
+      </div>
     <h1>Users Display Page</h1>
     <table id="usersTable">
         <thead>
@@ -39,6 +139,10 @@
         <tbody>
             <!-- User rows will be dynamically populated here -->
         </tbody>
+
+    </section>
     <script src="../dist/pages/usersDisplay.js" defer></script>
+    <script src="../dist//pages/dashboard.js"></script>
+
 </body>
 </html>
