@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2015", // or higher version
-    "lib": ["ES2015", "DOM"], // include ES2015 for Promise support
+    "lib": ["ES2015", "DOM"],
+    // include ES2015 for Promise support
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true
   }
 }
-

@@ -49,7 +49,6 @@
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle menuButton"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -59,16 +58,15 @@
                 </a>
                 <ul
                   class="dropdown-menu"
+                  id="dropdown-menu"
                   style="background-color: #4b727a"
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a class="dropdown-item link" href="/pages/foods.html"
-                      >Foods</a
-                    >
+                    <a class="dropdown-item link" href="./foods.html">Foods</a>
                   </li>
                   <li>
-                    <a class="dropdown-item link" href="/pages/drinks.html"
+                    <a class="dropdown-item link" href="./drinks.html"
                       >Drinks</a
                     >
                   </li>
@@ -114,10 +112,10 @@
       Foods
     </h1>
     <main>
-      <section id="food-list">
+      <section style="margin: auto !important" id="food-list">
         <!-- Food items dynamically populated here -->
       </section>
-      <section class="cart-section">
+      <section class="cart-section" id="cart-section">
         <aside id="cart">
           <h2>Cart</h2>
           <ol id="cart-items"></ol>
@@ -129,9 +127,9 @@
     <script src="./../dist/pages/foods.js" type="module"></script>
     <script>
       function cart() {
-        document.getElementById("cart").style.display == "grid"
-          ? (document.getElementById("cart").style.display = "none")
-          : (document.getElementById("cart").style.display = "grid");
+        document.getElementById("cart-section").style.display == "grid"
+          ? (document.getElementById("cart-section").style.display = "none")
+          : (document.getElementById("cart-section").style.display = "grid");
       }
     </script>
     <script src="./../dist/pages/header.js"></script>

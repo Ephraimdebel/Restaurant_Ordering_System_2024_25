@@ -1,37 +1,59 @@
+/* General Styling */
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
   padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
 }
 
-h1 {
+h1, h3 {
   margin-bottom: 20px;
+  color: #4b727a;
 }
 
 table {
   width: 95%;
+  margin: 30px auto;
   border-collapse: collapse;
-  margin: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 table, th, td {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
 }
 
 th, td {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
 }
 
 th {
-  background-color: #f4f4f4;
+  background-color: #4b727a;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
 }
 
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
 button {
-  padding: 5px 10px;
-  margin: 0 5px;
+  padding: 8px 12px;
   border: none;
   border-radius: 4px;
+  font-size: 14px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button.edit-btn {
@@ -39,9 +61,17 @@ button.edit-btn {
   color: white;
 }
 
+button.edit-btn:hover {
+  background-color: #0056b3;
+}
+
 button.delete-btn {
   background-color: #dc3545;
   color: white;
+}
+
+button.delete-btn:hover {
+  background-color: #a71d2a;
 }
 
 button#save-edit {
@@ -49,36 +79,55 @@ button#save-edit {
   color: white;
 }
 
+button#save-edit:hover {
+  background-color: #1e7e34;
+}
+
 button#close-edit-card {
   background-color: #6c757d;
   color: white;
 }
 
+button#close-edit-card:hover {
+  background-color: #545b62;
+}
+
+/* Edit Card */
 #edit-card {
   display: none;
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin: 15px auto;
-  border-radius: 5px;
-  width: 300px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  padding: 20px;
+  width: 320px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #edit-card h3 {
-  margin-top: 0;
+  margin: 0 0 20px;
+  color: #333;
 }
 
 #edit-card label {
   display: block;
-  margin-top: 10px;
-  font-weight: bold;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
 }
 
 #edit-card input, #edit-card select {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
+}
+
+#edit-card input:focus, #edit-card select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
 }
