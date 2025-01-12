@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up - G-5 Restaurant App</title>
+    <title>Sign Up - Alpha App</title>
     <!-- Bootstrap -->
    <link rel="stylesheet" href="../styles/bootstrap.css">
     <link rel="stylesheet" href="../styles/signup.css" />
@@ -12,99 +12,98 @@
   <body
     class="d-flex flex-column align-items-center justify-content-center vh-100"
   >
-     <header>
-      <nav class="navbar navbar-expand-lg" style="background-color: #4b727a">
-        <div class="container-fluid">
-          <a
-            class="navbar-brand"
-            href="#"
-            style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
-          >
-            G-5 Restaurant
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"
-              ><img src="./../assets/img/menu.svg" alt=""
-            /></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link link" href="./../index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link" href="/about">Our Story</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link" href="/find-us">Find Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link link" href="/reviews">Reviews</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle menuButton"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Menu
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  id="dropdown-menu"
-                  style="background-color: #4b727a"
-                  aria-labelledby="navbarDropdown"
-                >
-                  <li>
-                    <a class="dropdown-item link" href="./foods.html">Foods</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item link" href="./drinks.html"
-                      >Drinks</a
-                    >
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link link logoutButton" href="./login.html"
-                  >Logout</a
-                >
-              </li>
+  <header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #4b727a">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand"
+          href="#"
+          style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
+        >
+          Alpha
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"
+            ><img src="./../assets/img/menu.svg" alt=""
+          /></span>
+        </button>
+        <div class="collapse navbar-collapse flex justify-content-space-between gap-3" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./About.html">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./findus.html">Find Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link" href="./ReviewPage.html">Reviews</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle menuButton"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menu
+              </a>
+              <ul
+                class="dropdown-menu"
+                id="dropdown-menu"
+                style="background-color: #4b727a"
+                aria-labelledby="navbarDropdown"
+              >
+                <li>
+                  <a class="dropdown-item link" href="./foods.html"
+                    >Foods</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item link" href="./drinks.html"
+                    >Drinks</a
+                  >
+                </li>
+               
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link link logoutButton"
+                >Logout</a
+              >
+            </li>
 
-              <li class="nav-item">
-                <a
-                  class="nav-link link accountButton"
-                  href="./user_account.html"
-                  >Account</a
-                >
-              </li>
-
-              <li class="nav-item cart">
-                <img
-                  src="./../assets/img/cart.svg"
-                  class="nav-link contactButton"
-                  id="cart-button"
-                  onclick="cart()"
-                /><span id="cart-length"></span>
-              </li>
-            </ul>
-          </div>
+            <li class="nav-item">
+              <a
+                class="nav-link link accountButton"
+                href="./user_account.html"
+                >Account</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link contactButton" href="./dashboard.html"
+                >Dashboard</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
-    <!-- <h1>Sign Up G-5 Restaurant</h1> -->
+      </div>
+    </nav>
+  </header>
+    <!-- <h1>Sign Up Alpha</h1> -->
 <div class="imgForm" >
 <div class="signUpImg">
 <img src="../Asset/signUp.jpg" alt="">
@@ -232,7 +231,8 @@
     </div>
   </footer>
 
-    <script src="./../dist/auth/signup.js"></script>
-    <script src="./../dist/pages/header.js"></script>
+    <script src="../dist/auth/signup.js"></script>
+    <script src="../dist/auth/statuscheker.js"></script>
+    <script src="../dist/pages/header.js"></script>
   </body>
 </html>

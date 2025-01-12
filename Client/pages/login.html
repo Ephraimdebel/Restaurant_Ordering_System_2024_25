@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../styles/bootstrap.css" />
     <link rel="stylesheet" href="../styles/login.css" />
-    <!-- <link rel="stylesheet" href="../styles/header.css" /> -->
+    <link rel="stylesheet" href="../styles/header.css" />
   </head>
   <body class="flex-column align-items-center justify-content-center">
     <header>
@@ -16,13 +16,9 @@
           <a
             class="navbar-brand"
             href="#"
-            style="
-              color: #ffd700 !important;
-              font-family: Poppins;
-              letter-spacing: 2px;
-            "
+            style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
           >
-            G-5 Restaurant
+            Alpha
           </a>
           <button
             class="navbar-toggler"
@@ -33,27 +29,71 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"> </span>
+            <span class="navbar-toggler-icon"
+              ><img src="./../assets/img/menu.svg" alt=""
+            /></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse flex justify-content-space-between gap-3" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link" href="/about">Our Story</a>
+                <a class="nav-link link" href="./index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link" href="/find-us">Find Us</a>
+                <a class="nav-link link" href="./About.html">Our Story</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link link" href="/reviews">Reviews</a>
+                <a class="nav-link link" href="./findus.html">Find Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link link" href="./ReviewPage.html">Reviews</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle menuButton"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Menu
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  id="dropdown-menu"
+                  style="background-color: #4b727a"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <li>
+                    <a class="dropdown-item link" href="./foods.html"
+                      >Foods</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item link" href="./drinks.html"
+                      >Drinks</a
+                    >
+                  </li>
+                 
+                </ul>
               </li>
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
+                <a class="nav-link link logoutButton"
+                  >Logout</a
+                >
+              </li>
+
+              <li class="nav-item">
                 <a
-                  id="logoutBtn"
-                  class="nav-link link logoutButton"
-                  href="./signup.html"
-                  >Signup</a
+                  class="nav-link link accountButton"
+                  href="./user_account.html"
+                  >Account</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link contactButton" href="./dashboard.html"
+                  >Dashboard</a
                 >
               </li>
             </ul>
@@ -62,7 +102,7 @@
       </nav>
     </header>
 
-    <!-- <h1>G-5 Restaurant</h1> -->
+    <!-- <h1>Alpha</h1> -->
     <div class="imgForm">
       <div class="signUpImg">
         <img src="../Asset/signUp.jpg" alt="" />
@@ -72,7 +112,13 @@
         <form id="loginForm">
           <div class="loginPara">
             <p>Log in to explore our delicious menu!</p>
-          </div>
+            <div class="member">
+              <p >
+               Don't have an account?
+               <a href="signup.html">sign up</a>
+             </p>
+           </div>  
+                  </div>
           <div class="mb-3">
             <input
               type="email"
@@ -96,44 +142,45 @@
           </div>
         </form>
       </main>
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="footer-container">
-          <div class="footer-section">
-            <h3 class="footer-heading">Quick Links</h3>
-            <ul class="footer-list">
-              <li><a href="/" class="footer-link">Home</a></li>
-              <li><a href="/aboutPage" class="footer-link">Our Story</a></li>
-              <li><a href="/menus" class="footer-link">Menus</a></li>
-              <li><a href="/orderUs" class="footer-link">Order Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h3 class="footer-heading">Contact Us</h3>
-            <ul class="footer-list">
-              <li>Sanford: +251 941 000 022</li>
-              <li>Bole Atlas: +251 900 989 898</li>
-              <li>4Killo: +251 900 898 989</li>
-              <li>Email: lond2601@gmail.com</li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h3 class="footer-heading">Follow Us</h3>
-            <ul class="footer-list">
-              <li><a href="#" class="footer-link">Facebook</a></li>
-              <li><a href="#" class="footer-link">Twitter</a></li>
-              <li><a href="#" class="footer-link">Instagram</a></li>
-              <li><a href="#" class="footer-link">LinkedIn</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          © 2023 Alphapatisserie Co. All rights reserved.
-        </div>
-      </footer>
       <div id="message"></div>
-      <script src="./../dist/auth/login.js"></script>
-      <script src="./../dist/pages/header.js"></script>
     </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-list">
+            <li><a href="/" class="footer-link">Home</a></li>
+            <li><a href="/aboutPage" class="footer-link">Our Story</a></li>
+            <li><a href="/menus" class="footer-link">Menus</a></li>
+            <li><a href="/orderUs" class="footer-link">Order Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-heading">Contact Us</h3>
+          <ul class="footer-list">
+            <li>Sanford: +251 941 000 022</li>
+            <li>Bole Atlas: +251 900 989 898</li>
+            <li>4Killo: +251 900 898 989</li>
+            <li>Email: lond2601@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-heading">Follow Us</h3>
+          <ul class="footer-list">
+            <li><a href="#" class="footer-link">Facebook</a></li>
+            <li><a href="#" class="footer-link">Twitter</a></li>
+            <li><a href="#" class="footer-link">Instagram</a></li>
+            <li><a href="#" class="footer-link">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        © 2023 Alphapatisserie Co. All rights reserved.
+      </div>
+    </footer>
+    <script src="../dist/auth/login.js"></script>
+    <script src="../dist/auth/statuscheker.js"></script>
+    <script src="../dist/pages/header.js"></script>
   </body>
 </html>

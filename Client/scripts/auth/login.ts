@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ShowMessagess("Login successful!");
 
         // Optionally redirect to another page
-        window.location.pathname = "/Restaurant_Ordering_System_2024_25/Client/index.html"; // Adjust as necessary
+        window.location.pathname = "/Restaurant_Ordering_System_2024_25/Client/pages/index.html"; // Adjust as necessary
       } else {
         ShowMessagess("Token not found in the response!");
       }

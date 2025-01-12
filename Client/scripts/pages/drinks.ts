@@ -21,7 +21,7 @@ let drinkCart: DrinkItem[] = [];
 let drinkProducts: DrinkItem[] = [];
 async function fetchDrinkProducts(): Promise<void> {
   try {
-    const response = await fetch(`http://10.5.205.111:3333/menu/2`);
+    const response = await fetch(`http://localhost:3333/menu/1`);
     console.log(response);
     if (!response.ok) throw new Error("Failed to fetch food items.");
     const data: FoodItem[] = await response.json();
@@ -234,7 +234,7 @@ function placeDrinkOrder() {
       document.getElementById("message")!.style.display = "none";
     }, 2000);
     setTimeout(() => {
-      window.location.pathname = "Client/pages/login.html";
+      window.location.pathname = "/Restaurant_Ordering_System_2024_25/Client/pages/login.html";
     }, 2000);
 
     return;
@@ -261,7 +261,7 @@ function placeDrinkOrder() {
   console.log(drinkCart);
   console.log(typeof drinkCart);
   console.log(orderData);
-  fetch("http://10.5.205.111:3333/order/create", {
+  fetch("http://localhost:3333/order/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(orderData),

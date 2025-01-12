@@ -6,11 +6,11 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  // Serve static files in the "uploads" folder
-  app.enableCors(); // Allow all origins by default
+  // Allow all origins by default (you can restrict it to specific origins if needed)
+  app.enableCors();
 
 
-  app.useStaticAssets(join(__dirname, '..', 'uploads'));
+
   await app.listen(3333);
 }
 bootstrap();
