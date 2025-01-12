@@ -6,6 +6,7 @@ import { CreateUserDto } from './dto/CreateUser.dto';
 import { UpdateUserDto } from './dto/UpdateUser.dto';
 import { Role } from '../roles/role.entity';
 import * as bcrypt from 'bcrypt';
+import { Order } from 'src/orders/orders.entity';
 
 @Injectable()
 export class UsersService {
@@ -14,6 +15,7 @@ export class UsersService {
     private readonly userRepository: Repository<User>,
     @InjectRepository(Role)
     private readonly roleRepository: Repository<Role>,
+
   ) {}
 
 
@@ -69,7 +71,11 @@ export class UsersService {
 
   async delete(user_id: number): Promise<{ message: string }> {
     const user = await this.findOne(user_id);
-    await this.userRepository.remove(user);
-    return { message: `User with ID ${user_id} has been deleted` };
+  
+    // Soft delete the user
+    await this.userRepository.softRemove(user);
+  
+    return { message: `User with ID ${user_id} has been soft deleted` };
   }
+  
 }
