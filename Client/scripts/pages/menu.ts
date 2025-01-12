@@ -18,7 +18,7 @@ let Products: foodItem[] = [];
 
 async function fetchItems(): Promise<void> {
   try {
-    const response = await fetch("http://10.5.198.141:3333/menu/2");
+    const response = await fetch("http://localhost:3333/menu/2");
     if (!response.ok) throw new Error("Failed to fetch food items.");
     const data: foodItem[] = await response.json();
     Products = data.map((item) => ({ ...item, price: Number(item.price) }));
@@ -66,7 +66,7 @@ async function addMenu(): Promise<void> {
     const data = { name, price, image, description, catagoryId };
 
     try {
-      const response = await fetch(`http://10.5.198.141:3333/menu/create`, {
+      const response = await fetch(`http://localhost:3333/menu/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -102,7 +102,7 @@ async function deleteMenu(): Promise<void> {
 
       try {
         const response = await fetch(
-          `http://10.5.198.141:3333/menu/${deleteIndex}`,
+          `http://localhost:3333/menu/${deleteIndex}`,
           { method: "DELETE" }
         );
 
@@ -157,7 +157,7 @@ async function editMenu(): Promise<void> {
 
         try {
           const response = await fetch(
-            `http://10.5.198.141:3333/menu/${editIndex}`,
+            `http://localhost:3333/menu/${editIndex}`,
             {
               method: "PATCH",
               headers: { "Content-Type": "application/json" },
