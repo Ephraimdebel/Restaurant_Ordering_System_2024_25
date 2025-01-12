@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("http://192.168.0.100:3333/auth/login", {
+      const response = await postData("http://10.5.198.141:3333/auth/login", {
         email,
         password,
       });

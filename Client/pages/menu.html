@@ -64,10 +64,10 @@
         </div>
       </nav>
     </header>
-
+    <button id="addmenubtn" style="display: block">Add Menu</button>
     <main style="width: 400px; margin: auto; text-align: center" id="addMenu">
       <div class="editForm">
-        <h2>Edit Menu Item</h2>
+        <h2>Add Menu Item</h2>
         <form id="add-menu-form">
           <div class="form-group">
             <label for="add-menu-name">Menu Name</label>
@@ -113,6 +113,7 @@
             <div id="add-image-preview"></div>
           </div>
           <button type="submit" id="add-submit-button">Save Changes</button>
+          <button type="button" id="doneEditing">Done</button>
         </form>
       </div>
     </main>
@@ -130,15 +131,8 @@
       <section id="food-list">
         <!-- Food items dynamically populated here -->
       </section>
-      <section class="cart-section">
-        <aside id="cart">
-          <h2>Cart</h2>
-          <ol id="cart-items"></ol>
-          <button id="place-order">Place Order</button>
-        </aside>
-        <div id="message"></div>
-      </section>
     </main>
+
     <aside style="width: 400px; margin: auto; text-align: center" id="editmenu">
       <div class="editForm">
         <h2>Edit Menu Item</h2>
@@ -156,10 +150,8 @@
             <label for="edit-menu-category">Category</label>
             <select id="edit-menu-category" required>
               <option value="" disabled selected>Select a category</option>
-              <option value="Cake">Cake</option>
+              <option value="Cake">Foods</option>
               <option value="Drinks">Drinks</option>
-              <option value="Torta">Torta</option>
-              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -190,6 +182,6 @@
         </form>
       </div>
     </aside>
-    <script src="../dist/pages/menu.js"></script>
+    <script src="./../dist/pages/menu.js"></script>
   </body>
 </html>

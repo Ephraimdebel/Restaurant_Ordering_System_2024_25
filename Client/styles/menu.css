@@ -62,7 +62,37 @@ button {
   border-radius: 3px;
   cursor: pointer;
 }
+#addmenubtn {
+  margin: auto;
+  margin-top: 100px;
 
+  width: 100px;
+}
+#addMenu {
+  display: none;
+
+  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  width: 100% !important;
+  height: 100vh;
+}
+#addMenu > div {
+  width: 800px;
+  background-color: #4b727a;
+  margin: auto;
+  margin-top: 100px;
+  padding: 100px;
+}
+#addMenu button {
+  width: 30%;
+  background-color: #4b727a;
+}
 button:hover {
   background-color: #45a049;
 }

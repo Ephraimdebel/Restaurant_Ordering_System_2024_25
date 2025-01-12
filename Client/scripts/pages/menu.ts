@@ -18,29 +18,39 @@ let Products: foodItem[] = [];
 
 async function fetchItems(): Promise<void> {
   try {
-    const response = await fetch("http://192.168.0.100:3333/menu/2");
+    const response = await fetch("http://10.5.198.141:3333/menu/2");
     if (!response.ok) throw new Error("Failed to fetch food items.");
     const data: foodItem[] = await response.json();
     Products = data.map((item) => ({ ...item, price: Number(item.price) }));
-
+    injectData();
     console.log("Fetched food items:", Products);
-    DisplayFoodItems();
   } catch (error) {
     console.error("Error fetching food items:", error);
   }
 }
+const addbtn = document.getElementById("addmenubtn") as HTMLButtonElement;
+addbtn.addEventListener("click", () => {
+  const addMenu = document.getElementById("addMenu") as HTMLFormElement;
+  addMenu.style.display != "none"
+    ? (addMenu.style.display = "none")
+    : (addMenu.style.display = "block");
+});
+const doneEditing = document.getElementById("doneEditing") as HTMLButtonElement;
+doneEditing.addEventListener("click", () => {
+  const addMenu = document.getElementById("addMenu") as HTMLFormElement;
+  addMenu.style.display = "none";
+});
 
-fetchItems();
 
-function addMenu() {
+async function addMenu(): Promise<void> {
   const editForm = document.getElementById("addMenu") as HTMLFormElement;
   const addSubmit = document.getElementById(
     "add-submit-button"
   ) as HTMLButtonElement;
 
-  console.log(editForm);
   addSubmit.addEventListener("click", async (event: Event) => {
     event.preventDefault();
+    const menuTable = document.getElementById("addMenu") as HTMLFormElement;
     const name = (document.getElementById("add-menu-name") as HTMLInputElement)
       .value;
     const price = (
@@ -53,106 +63,82 @@ function addMenu() {
       document.getElementById("add-menu-description") as HTMLInputElement
     ).value;
     const catagoryId = 3;
-    const data = {
-      name,
-      price,
-      image,
-      description,
-      catagoryId,
-    };
-    console.log(data);
+    const data = { name, price, image, description, catagoryId };
 
-    fetch(`http://192.168.0.100:3333/menu/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
+    try {
+      const response = await fetch(`http://10.5.198.141:3333/menu/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const message = document.getElementById("message")!;
+      if (response.ok) {
+        message.textContent = "Item Added successfully";
+        message.style.color = "white";
+        message.style.backgroundColor = "green";
+        menuTable.style.display = "none";
+        update();
+      } else {
+        message.textContent = "An error occurred";
+        message.style.color = "white";
+        message.style.backgroundColor = "red";
+      }
+      message.style.display = "block";
+      setTimeout(() => {
+        message.style.display = "none";
+      }, 2000);
+      injectData();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+}
+
+async function deleteMenu(): Promise<void> {
+  document.querySelectorAll("#deleteBtn").forEach((button) => {
+    button.addEventListener("click", async (event) => {
+      const deleteIndex = (event.target as HTMLElement).getAttribute("data-id");
+
+      try {
+        const response = await fetch(
+          `http://10.5.198.141:3333/menu/${deleteIndex}`,
+          { method: "DELETE" }
+        );
+
+        const message = document.getElementById("message")!;
         if (response.ok) {
-          const message = document.getElementById("message")!;
-
-          message.textContent = "Item Added successfully";
-          console.log("Item Added successfully");
-
-          message.style.display = "block";
+          message.textContent = "Item deleted successfully";
           message.style.color = "white";
           message.style.backgroundColor = "green";
-          setTimeout(() => {
-            message.style.display = "none";
-          }, 2000);
-          DisplayFoodItems();
+          update();
         } else {
-          const message = document.getElementById("message")!;
-          message.style.display = "block";
           message.textContent = "An error occurred";
           message.style.color = "white";
           message.style.backgroundColor = "red";
-          setTimeout(() => {
-            message.style.display = "none";
-          }, 2000);
         }
-      })
-      .catch((error) => {
+        message.style.display = "block";
+        setTimeout(() => {
+          message.style.display = "none";
+        }, 2000);
+      } catch (error) {
         console.error("Error:", error);
-      });
-  });
-}
-function deleteMenu() {
-  document.querySelectorAll("#deleteBtn").forEach((button) => {
-    console.log("delete button clicked");
-    button.addEventListener("click", (event) => {
-      const deleteIndex = (event.target as HTMLElement).getAttribute("data-id");
-      console.log(deleteIndex);
-      fetch(`http://192.168.0.100:3333/menu/${deleteIndex}`, {
-        method: "DELETE",
-      })
-        .then((response) => {
-          if (response.ok) {
-            const message = document.getElementById("message")!;
-
-            message.textContent = "Item deleted successfully";
-            console.log("Item deleted successfully");
-
-            message.style.display = "block";
-            message.style.color = "white";
-            message.style.backgroundColor = "green";
-            setTimeout(() => {
-              message.style.display = "none";
-            }, 2000);
-            DisplayFoodItems();
-          } else {
-            const message = document.getElementById("message")!;
-            message.style.display = "block";
-            message.textContent = "An error occurred";
-            message.style.color = "white";
-            message.style.backgroundColor = "red";
-            setTimeout(() => {
-              message.style.display = "none";
-            }, 2000);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      }
     });
   });
 }
-function editMenu() {
+
+async function editMenu(): Promise<void> {
   document.querySelectorAll("#editBtn").forEach((button) => {
     button.addEventListener("click", (event) => {
-      console.log("edit button clicked");
-
       const editIndex = (event.target as HTMLElement).getAttribute("data-id");
-      console.log(editIndex);
 
       const editForm = document.getElementById("editmenu") as HTMLFormElement;
       const submit = document.getElementById(
         "edit-submit-button"
       ) as HTMLFormElement;
-      console.log(editForm);
       editForm.style.display = "block";
+
       submit.addEventListener("click", async (event: Event) => {
         event.preventDefault();
         const name = (
@@ -164,60 +150,47 @@ function editMenu() {
         const image = (
           document.getElementById("edit-image-preview") as HTMLInputElement
         ).value;
-        const desc = (
+        const description = (
           document.getElementById("edit-menu-description") as HTMLInputElement
         ).value;
-        const catagory = (
-          document.getElementById("edit-menu-category") as HTMLInputElement
-        ).value;
-        const data = {
-          name,
-          price,
-          image,
-          desc,
-        };
-        console.log(data);
+        const data = { name, price, image, description };
 
-        fetch(`http://192.168.0.100:3333/menu/${editIndex}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => {
-            if (response.ok) {
-              const message = document.getElementById("message")!;
-
-              message.textContent = "Item Updated successfully";
-              console.log("Item Updated successfully");
-
-              message.style.display = "block";
-              message.style.color = "white";
-              message.style.backgroundColor = "green";
-              setTimeout(() => {
-                message.style.display = "none";
-              }, 2000);
-              DisplayFoodItems();
-            } else {
-              const message = document.getElementById("message")!;
-              message.style.display = "block";
-              message.textContent = "An error occurred";
-              message.style.color = "white";
-              message.style.backgroundColor = "red";
-              setTimeout(() => {
-                message.style.display = "none";
-              }, 2000);
+        try {
+          const response = await fetch(
+            `http://10.5.198.141:3333/menu/${editIndex}`,
+            {
+              method: "PATCH",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
             }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
+          );
+
+          const message = document.getElementById("message")!;
+          if (response.ok) {
+            editForm.style.display = "none";
+            message.textContent = "Item Updated successfully";
+            message.style.color = "white";
+            message.style.backgroundColor = "green";
+            update();
+          } else {
+            message.textContent = "An error occurred";
+            message.style.color = "white";
+            message.style.backgroundColor = "red";
+          }
+
+          message.style.display = "block";
+          setTimeout(() => {
+            message.style.display = "none";
+          }, 2000);
+        } catch (error) {
+          console.error("Error:", error);
+        }
       });
     });
   });
 }
-function injectData() {
+
+function injectData(): void {
   foodlist.innerHTML = "";
   Products.forEach((food) => {
     const item = document.createElement("div");
@@ -236,12 +209,16 @@ function injectData() {
     `;
     foodlist.appendChild(item);
   });
+  editDelete();
 }
-// Display food items
-function DisplayFoodItems(): void {
-  injectData();
+function editDelete() {
   addMenu();
   deleteMenu();
   editMenu();
 }
-DisplayFoodItems();
+
+fetchItems();
+function update() {
+  fetchItems();
+  setTimeout(update, 5000);
+}
