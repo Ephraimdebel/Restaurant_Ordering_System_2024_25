@@ -234,7 +234,7 @@ function placeDrinkOrder() {
       document.getElementById("message")!.style.display = "none";
     }, 2000);
     setTimeout(() => {
-      window.location.pathname = "Client/pages/login.html";
+      window.location.pathname = "/Restaurant_Ordering_System_2024_25/Client/pages/login.html";
     }, 2000);
 
     return;

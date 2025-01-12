@@ -83,7 +83,7 @@ const modifyHeader = async (): Promise<void> => {
   } else {
     // If the user is not logged in, set the button to redirect to login
     logoutButton.textContent = 'Sign In';
-    logoutButton.href = './pages/login.html';
+    logoutButton.href = './login.html';
 
     // Hide the dashboard link for non-logged-in users
     dashboardLink.style.display = 'none';

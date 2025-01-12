@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Us</title>
-    <link rel="stylesheet" href="../styles/findus.css" />
     <link rel="stylesheet" href="../styles/bootstrap.css" />
     <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/About.css">
+    <link rel="stylesheet" href="../styles/findus.css">
+    <link rel="stylesheet" href="../styles/ReviewPage.css">
+    <link rel="stylesheet" href="../styles/contactUsPage.css">
     <!-- Link to CSS styles -->
   </head>
   <body>
@@ -17,8 +20,9 @@
             class="navbar-brand"
             href="#"
             style="color: #ffd700; font-family: Poppins; letter-spacing: 2px"
-            >G-5 Restaurant</a
           >
+            Alpha
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -28,12 +32,14 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"
+              ><img src="./../assets/img/menu.svg" alt=""
+            /></span>
           </button>
           <div class="collapse navbar-collapse flex justify-content-space-between gap-3" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link link" href="../index.html">Home</a>
+                <a class="nav-link link" href="./index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link link" href="./About.html">Our Story</a>
@@ -44,47 +50,39 @@
               <li class="nav-item">
                 <a class="nav-link link" href="./ReviewPage.html">Reviews</a>
               </li>
-
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle menuButton"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
-                  >Menu</a
                 >
+                  Menu
+                </a>
                 <ul
                   class="dropdown-menu"
+                  id="dropdown-menu"
                   style="background-color: #4b727a"
                   aria-labelledby="navbarDropdown"
                 >
                   <li>
-                    <a class="dropdown-item link" href="/pages/foods.html"
+                    <a class="dropdown-item link" href="./foods.html"
                       >Foods</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item link" href="/pages/drinks.html"
+                    <a class="dropdown-item link" href="./drinks.html"
                       >Drinks</a
                     >
                   </li>
-                  <li>
-                    <a class="dropdown-item link" href="/menu/cakes">Cakes</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item link" href="/menu/drinks">Drinks</a>
-                  </li>
+                 
                 </ul>
               </li>
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a
-                  id="logoutBtn"
-                  class="nav-link link logoutButton"
-                  href="./pages/login.html"
+                <a class="nav-link link logoutButton"
                   >Logout</a
                 >
               </li>
@@ -92,13 +90,13 @@
               <li class="nav-item">
                 <a
                   class="nav-link link accountButton"
-                  href="./pages/user_account.html"
+                  href="./user_account.html"
                   >Account</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link contactButton" href="./pages/order_us.html"
-                  >Order Us</a
+                <a class="nav-link contactButton" href="./dashboard.html"
+                  >Dashboard</a
                 >
               </li>
             </ul>
@@ -151,6 +149,7 @@
       </section>
     </div>
     <!-- <script src="./scripts/pages/bootstrap.bundle.min.js"></script> -->
-    <script src="./../dist/pages/header.js"></script>
+    <script src="../dist/auth/statuscheker.js"></script>
+    <script src="../dist/pages/header.js"></script>
   </body>
 </html>
