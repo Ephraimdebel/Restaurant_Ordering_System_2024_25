@@ -41,7 +41,6 @@ doneEditing.addEventListener("click", () => {
   addMenu.style.display = "none";
 });
 
-
 async function addMenu(): Promise<void> {
   const editForm = document.getElementById("addMenu") as HTMLFormElement;
   const addSubmit = document.getElementById(
