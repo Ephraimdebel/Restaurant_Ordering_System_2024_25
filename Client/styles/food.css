@@ -21,7 +21,9 @@ main {
   display: grid;
   gap: 2rem;
 }
-
+#cart-section {
+  display: none;
+}
 .food-item {
   background: #fff;
   border: 1px solid #ddd;
@@ -167,31 +169,23 @@ h1 {
   margin-top: 200px !important;
   margin-bottom: 20px !important;
 }
-<<<<<<< HEAD
 /* .cart-section {
   display: block;
-=======
-.cart-section {
-  display: none;
->>>>>>> origin/main
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: 100vh;
-<<<<<<< HEAD
   z-index: 2;
   background-color: #333;
   opacity: 0.5;
 } */
-=======
-
-  background: rgba(0, 0, 0, 0.5);
-}
->>>>>>> origin/main
 .navbarNav {
   z-index: 10;
+}
+#cart-section {
+  display: none;
 }
 header {
   position: fixed;
