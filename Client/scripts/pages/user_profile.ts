@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const response = await fetch(
-        `http://10.5.90.145:3333/users/${userInfo.user_id}`,
+        `http://192.168.0.100:3333/users/${userInfo.user_id}`,
         {
           method: "PATCH",
           headers: {
