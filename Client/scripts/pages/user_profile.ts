@@ -81,11 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
     orderHistoryElement.appendChild(listItem);
   });
 
-  // Edit profile button
-  const editProfileBtn = document.getElementById("edit-profile-btn")!;
-  editProfileBtn.addEventListener("click", () => {
-    const editForm = document.getElementById("editForm")!;
-    editForm.style.display = "block";
+//   // Edit profile button
+//   const editProfileBtn = document.getElementById("edit-profile-btn")!;
+//   editProfileBtn.addEventListener("click", () => {
+//     const editForm = document.getElementById("editForm")!;
+//     editForm.style.display = "block";
 
     // Populate form fields with current user data
     (document.getElementById("name") as HTMLInputElement).value =
@@ -97,17 +97,17 @@ document.addEventListener("DOMContentLoaded", () => {
     (document.getElementById("password") as HTMLInputElement).value = "";
   });
 
-  // Close form button
-  const closeFormButton = document.getElementById("closeForm")!;
-  closeFormButton.addEventListener("click", () => {
-    const editForm = document.getElementById("editForm")!;
-    editForm.style.display =
-      editForm.style.display === "none" ? "block" : "none";
-  });
-  // Handle form submission
-  const signupForm = document.getElementById("signupForm") as HTMLFormElement;
-  signupForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+//   // Close form button
+//   const closeFormButton = document.getElementById("closeForm")!;
+//   closeFormButton.addEventListener("click", () => {
+//     const editForm = document.getElementById("editForm")!;
+//     editForm.style.display =
+//       editForm.style.display === "none" ? "block" : "none";
+//   });
+//   // Handle form submission
+//   const signupForm = document.getElementById("signupForm") as HTMLFormElement;
+//   signupForm.addEventListener("submit", async (e) => {
+//     e.preventDefault();
 
     // Update userProfile with new data
     userProfile.name = (
@@ -167,5 +167,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       console.error("Network error or server not responding:");
     }
-  });
-});
+//   });
+// });

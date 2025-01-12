@@ -1,8 +1,14 @@
+
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   background-color: #4b727a;
   transition: background-color 0.3s ease;
   width: 100%;
@@ -62,6 +68,11 @@ background-attachment: fixed;
 .menuButton:focus {
   outline: 2px solid #ffd700;
   outline-offset: 4px;
+}
+#navbarNav{
+  display: flex;
+  /* gap: 20px; */
+  justify-content: space-between;
 }
 
 .contactButton {
