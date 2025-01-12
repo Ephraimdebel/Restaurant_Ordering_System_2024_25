@@ -42,7 +42,7 @@ if (signupForm) {
     console.log("User signed up:", newUser);
 
     try {
-      const endpoint = "http://192.168.0.100:3333/users/register";
+      const endpoint = "http://localhost:3333/users/register";
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

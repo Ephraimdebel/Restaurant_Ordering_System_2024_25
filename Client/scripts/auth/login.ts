@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // Send login request
-      const response = await postData("http://192.168.0.100:3333/auth/login", {
+      const response = await postData("http://localhost:3333/auth/login", {
         email,
         password,
       });
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ShowMessagess("Login successful!");
 
         // Optionally redirect to another page
-        window.location.pathname = "/Client/index.html"; // Adjust as necessary
+        window.location.pathname = "/Restaurant_Ordering_System_2024_25/Client/index.html"; // Adjust as necessary
       } else {
         ShowMessagess("Token not found in the response!");
       }
