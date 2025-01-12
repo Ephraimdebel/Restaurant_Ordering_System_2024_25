@@ -2,7 +2,7 @@ type foodItem = {
   id: number;
   name: string;
   price: number;
-  imageurl: string;
+  imageUrl: string;
   description: string; // Optional description
   amount?: number; // Optional amount
 };
@@ -196,7 +196,7 @@ function injectData(): void {
     const item = document.createElement("div");
     item.className = "food-item";
     item.innerHTML = `
-      <img src="${food.imageurl}" alt="${food.name}" />
+      <img src="${food.imageUrl}" alt="${food.name}" />
       <h3>${food.name}</h3>
       <p>${food.description}</p>
       <p><strong>$${food.price.toFixed(2)}</strong></p>

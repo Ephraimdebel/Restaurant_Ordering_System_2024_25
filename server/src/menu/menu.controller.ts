@@ -25,7 +25,8 @@ export class MenuController {
     @Body() createMenuItemDto: CreateMenuItemDto,
     @UploadedFile() image: Express.Multer.File,
   ) {
-    const imageUrl = `http://localhost:3000/uploads/${image.filename}`;
+    // Update the image URL to reflect the static path (`/static/images/`)
+    const imageUrl = `http://localhost:3333/static/images/${image.filename}`;
     return this.menuService.createMenuItem({ ...createMenuItemDto, imageUrl });
   }
 
@@ -46,7 +47,8 @@ export class MenuController {
     @Body() updateMenuItemDto: UpdateMenuItemDto,
     @UploadedFile() image?: Express.Multer.File,
   ) {
-    const imageUrl = image ? `http://localhost:3000/uploads/${image.filename}` : undefined;
+    // Update the image URL to reflect the static path (`/static/images/`)
+    const imageUrl = image ? `http://localhost:3333/static/images/${image.filename}` : undefined;
     return this.menuService.updateMenuItem(id, { ...updateMenuItemDto, imageUrl });
   }
 }

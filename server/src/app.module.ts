@@ -16,6 +16,8 @@ import { RoleModule } from './roles/role.module';
 import { CategoriesModule } from './category/category.module';
 import { ConfigModule } from '@nestjs/config';
 import { dataSourceOptions } from '../db/data-source';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -23,6 +25,10 @@ import { dataSourceOptions } from '../db/data-source';
     TypeOrmModule.forRoot(dataSourceOptions),
     ConfigModule.forRoot({
       isGlobal: true, // Makes the configuration globally available
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'uploads', 'images'),  // Adjusted path to be outside dist
+      serveRoot: '/static/images',  // Static file URL prefix
     }),
     PaymentModule,
     UsersModule,

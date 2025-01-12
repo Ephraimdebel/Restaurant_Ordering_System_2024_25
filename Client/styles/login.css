@@ -60,7 +60,6 @@ h1 {
   text-decoration:underline;
 }
 .loginPara p {
- margin: 50px 40px 40px 40px ;
   color:#4b727a;
  font-weight: bolder;
   font-size: 16px;
@@ -148,6 +147,16 @@ a {
   font-weight: bold;
   font-size: 1.1rem;
   transition: color 0.3s ease;
+}
+
+.member p{
+  text-align: center;
+  color:#67748e ;
+  font-weight: lighter;
+
+}
+.member a{
+  color: #4b727a;
 }
 /* General footer styles */
 .footer {

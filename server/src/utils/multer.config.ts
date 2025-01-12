@@ -3,7 +3,7 @@ import { join } from 'path';
 
 export const multerConfig = {
   storage: diskStorage({
-    destination: './uploads', // Folder to save images
+    destination: './uploads/images', // Folder to save images
     filename: (req, file, callback) => {
       const fileName = `${Date.now()}-${file.originalname}`;
       callback(null, fileName);
